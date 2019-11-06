@@ -1,0 +1,40 @@
+{
+  "name": "crlife-series-client",
+  "version": "1.0.0",
+  "description": "Crossroads Church Discipleship Series Client",
+  "main": "index.js",
+  "scripts": {
+    "build": "yarn lint && webpack --config webpack.config.js",
+    "dev": "webpack-dev-server --env.dev --colors --hot --inline --port 8080 --open",
+    "lint": "eslint --fix --ext .ts --ext .tsx src/"
+  },
+  "author": "Ben Spain",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "reactstrap": "^8.1.1"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.11",
+    "@types/react-dom": "^16.9.3",
+    "@types/reactstrap": "^8.0.6",
+    "@typescript-eslint/eslint-plugin": "^2.6.1",
+    "@typescript-eslint/parser": "^2.6.1",
+    "css-loader": "^3.2.0",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "file-loader": "^4.2.0",
+    "prettier": "^1.18.2",
+    "style-loader": "^1.0.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.2",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  }
+}
