@@ -4,8 +4,8 @@
   "description": "Crossroads Church Discipleship Series Client",
   "main": "index.js",
   "scripts": {
-    "verify" : "yarn lint && yarn test",
-    "build": "yarn lint && webpack --config webpack.config.js",
+    "verify" : "yarn lint && yarn test && yarn build",
+    "build": "webpack --config webpack.config.js",
     "dev": "webpack-dev-server --env.dev --colors --hot --inline --port 8080 --open",
     "lint": "eslint --fix --ext .ts --ext .tsx src/",
     "test": "jest",
