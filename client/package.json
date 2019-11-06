@@ -4,9 +4,29 @@
   "description": "Crossroads Church Discipleship Series Client",
   "main": "index.js",
   "scripts": {
+    "verify" : "yarn lint && yarn test",
     "build": "yarn lint && webpack --config webpack.config.js",
     "dev": "webpack-dev-server --env.dev --colors --hot --inline --port 8080 --open",
-    "lint": "eslint --fix --ext .ts --ext .tsx src/"
+    "lint": "eslint --fix --ext .ts --ext .tsx src/",
+    "test": "jest",
+    "test:debug": "node --inspect-brk ./node_modules/.bin/jest --runInBand"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "roots": [
+      "./src"
+    ],
+    "transform": {
+      "\\.(ts|tsx)$": "ts-jest"
+    },
+    "testRegex": "/__tests__/.*\\.(ts|tsx|js)$",
+    "setupFilesAfterEnv": [
+      "<rootDir>/enzymeSetup.ts"
+    ]
   },
   "author": "Ben Spain",
   "license": "MIT",
@@ -17,20 +37,27 @@
     "reactstrap": "^8.1.1"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.10.3",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^24.0.22",
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.3",
     "@types/reactstrap": "^8.0.6",
     "@typescript-eslint/eslint-plugin": "^2.6.1",
     "@typescript-eslint/parser": "^2.6.1",
     "css-loader": "^3.2.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.5.0",
     "eslint-config-react": "^1.1.7",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.16.0",
     "file-loader": "^4.2.0",
+    "jest": "^24.9.0",
     "prettier": "^1.18.2",
     "style-loader": "^1.0.0",
+    "ts-jest": "^24.1.0",
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.2",
     "webpack": "^4.41.2",
