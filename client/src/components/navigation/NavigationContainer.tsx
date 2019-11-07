@@ -3,24 +3,27 @@ import { Container, Row } from 'reactstrap';
 import { NavigationButton } from './NavigationButton';
 
 interface INagivationItem {
-  ref: string,
-  value: string
+  ref: string;
+  value: string;
 }
 
 interface INavigationContainerProps {
-  items: INagivationItem[]
+  items: INagivationItem[];
 }
 
 class NavigationContainer extends React.Component<INavigationContainerProps> {
   render(): JSX.Element {
-
     const navigationRows = this.props.items.map(item => {
-      return <Row key={`nav-button-${item.ref}`}><NavigationButton>{`${item.value}`}</NavigationButton></Row>
-    })
+      return (
+        <Row key={`nav-button-${item.ref}`}>
+          <NavigationButton>{`${item.value}`}</NavigationButton>
+        </Row>
+      );
+    });
 
     return (
       <Container fluid={true} className="Footer">
-        { navigationRows }
+        {navigationRows}
         <Row>
           <NavigationButton>{'<'}</NavigationButton>
           <NavigationButton>{'>'}</NavigationButton>

@@ -4,7 +4,7 @@
   "description": "Crossroads Church Discipleship Series Client",
   "main": "index.js",
   "scripts": {
-    "verify" : "yarn lint && yarn test && yarn build",
+    "verify": "yarn lint && yarn test && yarn build",
     "build": "webpack --config webpack.config.js",
     "dev": "yarn build && webpack-dev-server --env.dev --colors --hot --inline --port 8080 --open",
     "lint": "eslint --fix --ext .ts --ext .tsx src/",
@@ -15,9 +15,14 @@
     "globals": {
       "ts-jest": {
         "diagnostics": {
-          "ignoreCodes": [ "151001" ]
+          "ignoreCodes": [
+            "151001"
+          ]
         }
       }
+    },
+    "moduleNameMapper": {
+      "\\.(css|less|scss|sss|styl)$": "<rootDir>/node_modules/jest-css-modules"
     },
     "moduleFileExtensions": [
       "ts",
@@ -62,7 +67,10 @@
     "eslint-plugin-react": "^7.16.0",
     "file-loader": "^4.2.0",
     "jest": "^24.9.0",
+    "jest-css-modules": "^2.1.0",
+    "node-sass": "^4.13.0",
     "prettier": "^1.18.2",
+    "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
     "ts-jest": "^24.1.0",
     "ts-loader": "^6.2.1",

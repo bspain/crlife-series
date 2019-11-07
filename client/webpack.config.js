@@ -15,8 +15,8 @@ module.exports = {
         loader: "ts-loader"
       },
       {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"]
+        test: /\.(s*)css$/,
+        loader: ['style-loader', 'css-loader', 'sass-loader']
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/,
