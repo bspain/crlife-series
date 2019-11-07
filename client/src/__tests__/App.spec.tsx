@@ -3,11 +3,12 @@ import 'jest';
 import * as React from 'react';
 import { shallow } from 'enzyme';
 import App from '../App';
+import { NavigationContainer } from '../components/NavigationContainer';
 
 describe('App component', () => {
-  it('should render Hello World on start', () => {
+  it('should render a NaviagtionContainer', () => {
     const wrapper = shallow(<App />);
-    const div = wrapper.find('div');
-    expect(div.text()).toEqual('Hello World');
+    const navContainer = wrapper.find(NavigationContainer);
+    expect(navContainer).toHaveLength(1);
   });
 });

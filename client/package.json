@@ -6,7 +6,7 @@
   "scripts": {
     "verify" : "yarn lint && yarn test && yarn build",
     "build": "webpack --config webpack.config.js",
-    "dev": "webpack-dev-server --env.dev --colors --hot --inline --port 8080 --open",
+    "dev": "yarn build && webpack-dev-server --env.dev --colors --hot --inline --port 8080 --open",
     "lint": "eslint --fix --ext .ts --ext .tsx src/",
     "test": "jest",
     "test:debug": "node --inspect-brk ./node_modules/.bin/jest --runInBand"
