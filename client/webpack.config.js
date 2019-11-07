@@ -9,7 +9,9 @@ module.exports = {
     rules: [
       {
         // All files with '.ts' or '.tsx' extension will be handled by 'ts-loader'
-        test: /\.tsx?$/, 
+        test: function(modulePath) {
+          return ( modulePath.endsWith('.ts') || modulePath.endsWith('.tsx') ) && !modulePath.includes("__tests__") 
+        }, 
         loader: "ts-loader"
       },
       {

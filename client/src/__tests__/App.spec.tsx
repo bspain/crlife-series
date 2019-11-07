@@ -3,7 +3,7 @@ import 'jest';
 import * as React from 'react';
 import { shallow } from 'enzyme';
 import App from '../App';
-import { NavigationContainer } from '../components/NavigationContainer';
+import { NavigationContainer } from '../components/navigation/NavigationContainer';
 
 describe('App component', () => {
   it('should render a NaviagtionContainer', () => {
