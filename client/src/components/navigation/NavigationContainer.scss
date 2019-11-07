@@ -1,0 +1,28 @@
+.crl-nav-container {
+    position: fixed;
+    padding-top: 18px;
+    bottom: 0px;
+    width: 100%;
+    background-color: bisque;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+
+    .crl-nav-divider {
+        height: 8px;
+    }
+   
+    .crl-nav-button {
+        border: 2px solid orange;
+        border-radius: 6px;
+        font-size: small;
+        margin-top: 5px;
+        height: 32px;
+        line-height: 26px;
+    }
+
+    .crl-nav-pagenav .crl-nav-button {
+        width: 80px;
+        left: calc(50% - 40px);
+        position: relative;    
+    }
+}

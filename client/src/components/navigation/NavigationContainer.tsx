@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Container, Row } from 'reactstrap';
 import { NavigationButton } from './NavigationButton';
+import './NavigationContainer.scss';
 
 interface INagivationItem {
   ref: string;
@@ -22,9 +23,10 @@ class NavigationContainer extends React.Component<INavigationContainerProps> {
     });
 
     return (
-      <Container fluid={true} className="Footer">
+      <Container fluid={true} className="crl-nav-container">
         {navigationRows}
-        <Row>
+        <div className="crl-nav-divider"/>
+        <Row className="crl-nav-pagenav">
           <NavigationButton>{'<'}</NavigationButton>
           <NavigationButton>{'>'}</NavigationButton>
         </Row>
