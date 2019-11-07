@@ -1,14 +1,31 @@
 import * as React from 'react';
-import { Row } from 'reactstrap';
+import { Container, Row } from 'reactstrap';
 import { NavigationButton } from './NavigationButton';
 
-class NavigationContainer extends React.Component {
+interface INagivationItem {
+  ref: string,
+  value: string
+}
+
+interface INavigationContainerProps {
+  items: INagivationItem[]
+}
+
+class NavigationContainer extends React.Component<INavigationContainerProps> {
   render(): JSX.Element {
+
+    const navigationRows = this.props.items.map(item => {
+      return <Row><NavigationButton>{`${item.value}`}</NavigationButton></Row>
+    })
+
     return (
-      <Row>
-        <NavigationButton>{'<'}</NavigationButton>
-        <NavigationButton>{'>'}</NavigationButton>
-      </Row>
+      <Container fluid={true} className="Footer">
+        { navigationRows }
+        <Row>
+          <NavigationButton>{'<'}</NavigationButton>
+          <NavigationButton>{'>'}</NavigationButton>
+        </Row>
+      </Container>
     );
   }
 }
