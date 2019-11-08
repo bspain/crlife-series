@@ -1,6 +1,12 @@
 # dependencies
 node_modules
 
+# output
+dist
+
+# config
+app.config.json
+
 # misc
 .vscode
 

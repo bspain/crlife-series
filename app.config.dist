@@ -1,0 +1,5 @@
+{
+    "AZURE_STORAGE_ACCOUNT_NAME" : "name goes here",
+    "AZURE_STORAGE_ACCOUNT_ACCESS_KEY" : "key goes here",
+    "AZURE_STORAGE_CONTAINER_NAME" : "crdbv"
+}
