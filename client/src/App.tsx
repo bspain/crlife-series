@@ -23,11 +23,11 @@ class App extends React.Component<{}, IAppState> {
 
     const navItems = [
       { ref: 'ot-content', value: 'Older Testament Study' },
-      { ref: 'nt-content', value: 'New Testament Study' },
+      // { ref: 'nt-content', value: 'New Testament Study' },
       { ref: 'ot-passage', value: 'Old Testament Passage' },
-      { ref: 'nt-passage', value: 'New Testament Passage' },
-      { ref: 'ps-passage', value: 'Psalms' },
-      { ref: 'pr-passage', value: 'Proverbs' },
+      // { ref: 'nt-passage', value: 'New Testament Passage' },
+      // { ref: 'ps-passage', value: 'Psalms' },
+      // { ref: 'pr-passage', value: 'Proverbs' },
       { ref: 'fs-content', value: 'Further Study' }
     ];
 
