@@ -1,0 +1,10 @@
+{
+  "name": "encode-file",
+  "version": "1.0.0",
+  "description": "Utility for encoding file data",
+  "main": "main.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node main.js"
+  }
+}
