@@ -1,0 +1,15 @@
+{
+  "name": "nlt-fetch",
+  "version": "1.0.0",
+  "description": "Utility NLT API passage fetcher",
+  "main": "main.js",
+  "author": "Ben Spain",
+  "license": "MIT",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "node-fetch": "^2.6.0"
+  }
+}
