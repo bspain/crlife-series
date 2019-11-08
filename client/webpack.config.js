@@ -10,7 +10,7 @@ module.exports = {
       {
         // All files with '.ts' or '.tsx' extension will be handled by 'ts-loader'
         test: function(modulePath) {
-          return ( modulePath.endsWith('.ts') || modulePath.endsWith('.tsx') ) && !modulePath.includes("__tests__") 
+          return ( modulePath.endsWith('.ts') || modulePath.endsWith('.tsx') ) && !(modulePath.includes("__tests__") || modulePath.includes("__mocks__")) 
         }, 
         loader: "ts-loader"
       },
@@ -19,11 +19,15 @@ module.exports = {
         loader: ['style-loader', 'css-loader', 'sass-loader']
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/,
+        test: /\.(png|jpg|jpeg|gif)$/,
         use: [
           'file-loader'
         ]
-      }
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader'
+      } 
     ]
   },
   output: {

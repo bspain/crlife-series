@@ -6,7 +6,7 @@
   "scripts": {
     "verify": "yarn lint && yarn test && yarn build",
     "build": "webpack --config webpack.config.js",
-    "dev": "yarn build && webpack-dev-server --env.dev --colors --hot --inline --port 8080 --open",
+    "dev": "yarn build && webpack-dev-server --env.dev --colors --hot --inline --port 8080",
     "lint": "eslint --fix --ext .ts --ext .tsx src/",
     "test": "jest",
     "test:debug": "node --inspect-brk ./node_modules/.bin/jest --runInBand"
@@ -22,6 +22,7 @@
       }
     },
     "moduleNameMapper": {
+      "\\.svg$": "<rootDir>/src/__mocks__/svgMock.js",
       "\\.(css|less|scss|sss|styl)$": "<rootDir>/node_modules/jest-css-modules"
     },
     "moduleFileExtensions": [
@@ -72,6 +73,7 @@
     "prettier": "^1.18.2",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
+    "svg-inline-loader": "^0.8.0",
     "ts-jest": "^24.1.0",
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.2",

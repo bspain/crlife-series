@@ -1,8 +1,14 @@
+/* global console */
 import * as React from 'react';
 import { NavigationContainer } from './components/navigation/NavigationContainer';
+import { Chevron } from './components/chevron/Chevron';
 import './App.scss';
 
 class App extends React.Component {
+  onChevronClicked = (): void => {
+    console.log('Chevron clicked');
+  };
+
   render(): JSX.Element {
     // const SSR_DATA = document.getElementById('__CR_SERIES_SSR_DATA').innerText;
     // const payload = JSON.parse(SSR_DATA) as JenkinsJsonPayload;
@@ -20,6 +26,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <NavigationContainer items={navItems}></NavigationContainer>
+        <Chevron direction="up" onClick={this.onChevronClicked} />
       </div>
     );
   }

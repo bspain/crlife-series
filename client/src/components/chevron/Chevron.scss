@@ -1,0 +1,21 @@
+.chevron {
+    .foreground {
+        fill: orange;
+    }
+    .background {
+        fill: white;
+    }
+}
+
+.chevron.up {
+    svg {
+        transition: transform 500ms linear 0ms;
+        transform: rotate(0deg);
+    }
+}
+.chevron.down {
+    svg {
+        transition: transform 500ms linear 0ms;
+        transform: rotate(180deg)
+    }    
+}

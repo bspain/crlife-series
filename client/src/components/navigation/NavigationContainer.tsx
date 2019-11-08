@@ -25,7 +25,7 @@ class NavigationContainer extends React.Component<INavigationContainerProps> {
     return (
       <Container fluid={true} className="crl-nav-container">
         {navigationRows}
-        <div className="crl-nav-divider"/>
+        <div className="crl-nav-divider" />
         <Row className="crl-nav-pagenav">
           <NavigationButton>{'<'}</NavigationButton>
           <NavigationButton>{'>'}</NavigationButton>
