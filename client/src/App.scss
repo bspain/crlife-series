@@ -13,8 +13,12 @@ body
     position: fixed;
     bottom: 0px;
     height: 38px;
+
+    // BUG: Chevron clickable area can be pretty small - if we increase the width
+    // and adjust calc accordingly, can we get more clickable space around the button?
     width: 38px;
     left: calc(50% - 19px);
+    
     padding-bottom: 6px;
 
     svg {
