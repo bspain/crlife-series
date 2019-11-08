@@ -11,4 +11,6 @@ export interface ContentItem {
 export interface Series {
   navigation: NavigationItem[];
   content: ContentItem[];
+  next: string,
+  prev: string
 }

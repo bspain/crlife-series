@@ -8,7 +8,7 @@ import { NavigationContainer } from '../components/navigation/NavigationContaine
 
 describe('App component', () => {
   it('should render a NaviagtionContainer', () => {
-    const series: Series = { navigation: [], content: [] };
+    const series: Series = { navigation: [], content: [], next: '', prev: '' };
     const wrapper = shallow(<App series={series} />);
     const navContainer = wrapper.find(NavigationContainer);
     expect(navContainer).toHaveLength(1);

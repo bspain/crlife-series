@@ -28,7 +28,8 @@ class App extends React.Component<IAppProps, IAppState> {
   onContentNavClicked = (selection: number | "prev" | "next") => {
     if (selection == "prev" || selection == "next")
     {
-      // Navigate to previous / next
+      const refValue = (selection == "prev") ? this.props.series.prev : this.props.series.next;
+      window.location.href = `${window.location.origin}${window.location.pathname}?ref=${refValue}`;
     }
     else
     {
