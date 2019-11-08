@@ -4,6 +4,7 @@ interface ILOG_MODULE {
     [ key: string ] : string,
     SERVER: string,
     HELPERS: string,
+    MODULE_HEALTH: string,
     MODULE_PASSAGES: string,
     MODULE_READINGS: string,
     MODULE_DAILY: string,
@@ -19,6 +20,7 @@ interface ILOG_MODULE {
 export const LOG_MODULE : ILOG_MODULE = {
     SERVER: 'app:server',
     HELPERS: 'app:helpers',
+    MODULE_HEALTH: 'app:module:health',
     MODULE_PASSAGES: 'app:module:passages',
     MODULE_READINGS: 'app:module:readings',
     MODULE_DAILY: 'app:module:daily',

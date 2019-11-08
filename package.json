@@ -21,6 +21,7 @@
       ".git",
       "node_modules"
     ],
+    "ext": "ts",
     "watch": [
       "src"
     ],

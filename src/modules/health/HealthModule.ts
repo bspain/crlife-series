@@ -1,5 +1,5 @@
 import { ModuleRequestHandler } from "../../descriptors/ModuleRequestHandler";
-import Logger from "../../logger";
+import Logger, { LOG_MODULE } from "../../logger";
 
 export class HealthModule implements ModuleRequestHandler
 {
@@ -8,6 +8,8 @@ export class HealthModule implements ModuleRequestHandler
     ) {}
 
     requestHandler(request: import("express-serve-static-core").Request, response: import("express-serve-static-core").Response): void {
+
+        this.logger.debug(LOG_MODULE.MODULE_HEALTH, 'handling health request');
 
         const visibleSettings:any = {};
 
