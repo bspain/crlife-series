@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { ContentContainer } from './components/content/ContentContainer';
 import { NavigationContainer } from './components/navigation/NavigationContainer';
 import { Chevron } from './components/chevron/Chevron';
 import './App.scss';
@@ -26,6 +27,9 @@ class App extends React.Component<IAppProps, IAppState> {
   render(): JSX.Element {
     return (
       <div className="App">
+        <ContentContainer 
+          items={this.state.series.content}
+          selected={0}/>
         <NavigationContainer
           expanded={this.state.navExpanded}
           items={this.state.series.navigation}
