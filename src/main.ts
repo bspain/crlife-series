@@ -1,23 +1,40 @@
 import * as http from 'http';
-import { config as Config } from './config/Config';
+import { ConfigProvider } from './providers/ConfigProvider';
+import { AppProvider } from './providers/AppProvider';
 import Logger from './logger';
+import e = require('express');
 
 const logger = new Logger();
-
-const { app, config } = Config(logger);
+const config = new ConfigProvider();
+const appProvider = new AppProvider(logger, config);
 
 console.log(`Process env APP_ENV: ${process.env.APP_ENV}`);
 console.log(`Process env DEBUG: ${process.env.DEBUG}`);
 console.log(`meta : ${config.get('meta')}`);
 console.log(`azure_storage: ${config.get('azure_storage')}`);
 
-// Setup App
-const httpServer = http.createServer(app);
+async function main() {
+  const app = await appProvider.initializeExpressApp();
+
+  // Setup App
+  const httpServer = http.createServer(app);
+
+  // Register app listener events
+  httpServer.on('error', (error: { code: string; syscall?: string }) => {
+    onError(error, app);
+  });
+
+  httpServer.on('listening', () => {
+    onListening(httpServer);
+  });
+
+  httpServer.listen(config.get('port'));
+}
 
 /**
  * Event listener for HTTP server "error" event.
  */
-function onError(error: { code: string; syscall?: string }): void {
+function onError(error: { code: string; syscall?: string }, app: e.Application): void {
   if (error.syscall !== 'listen') {
     throw error;
   }
@@ -43,13 +60,11 @@ function onError(error: { code: string; syscall?: string }): void {
 /**
  * Event listener for HTTP server "listening" event.
  */
-function onListening(): void {
-  const addr = httpServer.address();
+function onListening(server: http.Server): void {
+  const addr = server.address();
   const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
   logger.debug('SERVER', 'Listening on ' + bind);
 }
 
-// Register app listener events
-httpServer.on('error', onError);
-httpServer.on('listening', onListening);
-httpServer.listen(config.get('port'));
+main();
+

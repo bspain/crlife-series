@@ -1,0 +1,24 @@
+{
+    "series": [
+        {
+            "name": "daily",
+            "path": "/daily",
+            "data": [
+                {
+                    "ref": "0601",
+                    "path": "/0601.json"
+                }
+            ]
+        },
+        {
+            "name": "devo",
+            "path": "/devo",
+            "data": [
+                {
+                    "ref": "1103",
+                    "path": "/1103.json"
+                }
+            ]
+        }
+    ]
+}
