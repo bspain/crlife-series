@@ -12,9 +12,23 @@ interface INavigationContainerProps {
   items: INagivationItem[];
 }
 
-class NavigationContainer extends React.Component<INavigationContainerProps> {
+interface INavigationContainerState {
+  items: INagivationItem[];
+  expanded: boolean;
+}
+
+class NavigationContainer extends React.Component<
+  INavigationContainerProps,
+  INavigationContainerState
+> {
+  constructor(props: INavigationContainerProps) {
+    super(props);
+
+    this.state = { items: props.items, expanded: false };
+  }
+
   render(): JSX.Element {
-    const navigationRows = this.props.items.map(item => {
+    const navigationRows = this.state.items.map(item => {
       return (
         <Row key={`nav-button-${item.ref}`}>
           <NavigationButton>{`${item.value}`}</NavigationButton>

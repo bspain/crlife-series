@@ -1,12 +1,20 @@
-/* global console */
 import * as React from 'react';
 import { NavigationContainer } from './components/navigation/NavigationContainer';
 import { Chevron } from './components/chevron/Chevron';
 import './App.scss';
 
-class App extends React.Component {
+interface IAppState {
+  navExpanded: boolean;
+}
+class App extends React.Component<{}, IAppState> {
+  constructor(props: {}) {
+    super(props);
+
+    this.state = { navExpanded: false };
+  }
+
   onChevronClicked = (): void => {
-    console.log('Chevron clicked');
+    this.setState({ ...this.state, navExpanded: !this.state.navExpanded });
   };
 
   render(): JSX.Element {
@@ -26,7 +34,10 @@ class App extends React.Component {
     return (
       <div className="App">
         <NavigationContainer items={navItems}></NavigationContainer>
-        <Chevron direction="up" onClick={this.onChevronClicked} />
+        <Chevron
+          direction={this.state.navExpanded ? 'down' : 'up'}
+          onClick={this.onChevronClicked}
+        />
       </div>
     );
   }
