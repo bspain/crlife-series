@@ -1,19 +1,15 @@
 import * as React from 'react';
 import { Container, Row } from 'reactstrap';
+import { NavigationItem } from '../../models/Models';
 import { NavigationButton } from './NavigationButton';
 import './NavigationContainer.scss';
 
-interface INagivationItem {
-  ref: string;
-  value: string;
-}
-
-interface INavigationContainerProps {
-  items: INagivationItem[];
+interface NavigationContainerProps {
+  items: NavigationItem[];
   expanded: boolean;
 }
 
-class NavigationContainer extends React.Component<INavigationContainerProps> {
+class NavigationContainer extends React.Component<NavigationContainerProps> {
   render(): JSX.Element {
     const navigationRows = this.props.items.map(item => {
       return (
