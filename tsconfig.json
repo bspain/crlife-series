@@ -5,12 +5,17 @@
         "noImplicitAny": true,
         "module": "commonjs",
         "target": "es6",
-        "jsx": "react"
+        "jsx": "react",
+        "typeRoots": [
+            "./node_modules/@types",
+            "./src/@types"
+        ]
     },
     "include": [
         "./src/**/*"
     ],
     "exclude": [
+        "client",
         "./**/__tests__/*"
     ]
 }

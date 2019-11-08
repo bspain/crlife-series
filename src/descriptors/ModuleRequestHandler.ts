@@ -1,5 +1,5 @@
-import { Request, Response } from "express-serve-static-core";
+import { Request, Response } from 'express-serve-static-core';
 
 export interface ModuleRequestHandler {
-    requestHandler(request: Request, response: Response) : void;
+  requestHandler(request: Request, response: Response): void;
 }
