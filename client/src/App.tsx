@@ -1,3 +1,4 @@
+/* global window */
 import * as React from 'react';
 import { ContentContainer } from './components/content/ContentContainer';
 import { NavigationContainer } from './components/navigation/NavigationContainer';
@@ -25,17 +26,14 @@ class App extends React.Component<IAppProps, IAppState> {
     this.setState({ navExpanded: !this.state.navExpanded });
   };
 
-  onContentNavClicked = (selection: number | "prev" | "next") => {
-    if (selection == "prev" || selection == "next")
-    {
-      const refValue = (selection == "prev") ? this.props.series.prev : this.props.series.next;
+  onContentNavClicked = (selection: number | 'prev' | 'next'): void => {
+    if (selection == 'prev' || selection == 'next') {
+      const refValue = selection == 'prev' ? this.props.series.prev : this.props.series.next;
       window.location.href = `${window.location.origin}${window.location.pathname}?ref=${refValue}`;
+    } else {
+      this.setState({ selected: selection as number, navExpanded: false });
     }
-    else
-    {
-      this.setState({ selected: selection as number, navExpanded: false })
-    }
-  }
+  };
 
   render(): JSX.Element {
     return (

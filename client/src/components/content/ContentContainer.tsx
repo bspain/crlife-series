@@ -1,3 +1,4 @@
+/* global window, document */
 import * as React from 'react';
 import { Container, Row } from 'reactstrap';
 import { ContentItem } from '../../models/Models';
@@ -23,22 +24,20 @@ class ContentContainer extends React.Component<ContentContainerProps> {
     return <Container fluid={true}>{contentRows}</Container>;
   }
 
-  componentDidMount() {
-      this.scrollToSelection();
+  componentDidMount(): void {
+    this.scrollToSelection();
   }
 
-  componentDidUpdate() {
-      this.scrollToSelection();
+  componentDidUpdate(): void {
+    this.scrollToSelection();
   }
 
-  scrollToSelection() {
-      if (!this.props.selected) {
-          window.scrollTo(0, 0);
-      }
-      else
-      {
-          document.getElementById(this.props.items[this.props.selected].id).scrollIntoView();
-      }
+  scrollToSelection(): void {
+    if (!this.props.selected) {
+      window.scrollTo(0, 0);
+    } else {
+      document.getElementById(this.props.items[this.props.selected].id).scrollIntoView();
+    }
   }
 }
 

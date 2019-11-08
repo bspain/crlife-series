@@ -5,7 +5,7 @@ import { mount } from 'enzyme';
 import { NavigationContainer } from '../NavigationContainer';
 import { NavigationButton } from '../NavigationButton';
 
-const handleClick = (selected: number | "prev" | "next" ) => {};
+const handleClick = (): void => {};
 
 describe('NavigationContainer', () => {
   it('should render backward and forward nav buttons', () => {
@@ -24,7 +24,9 @@ describe('NavigationContainer', () => {
       { ref: 'ref3', value: 'val3' }
     ];
 
-    const wrapper = mount(<NavigationContainer onClick={handleClick} expanded={true} items={navItems} />);
+    const wrapper = mount(
+      <NavigationContainer onClick={handleClick} expanded={true} items={navItems} />
+    );
     const buttons = wrapper.find(NavigationButton);
     expect(buttons).toHaveLength(5);
 

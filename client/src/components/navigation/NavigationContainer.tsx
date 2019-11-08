@@ -7,7 +7,7 @@ import './NavigationContainer.scss';
 interface NavigationContainerProps {
   items: NavigationItem[];
   expanded: boolean;
-  onClick(selection: number | "prev" | "next") : void;
+  onClick(selection: number | 'prev' | 'next'): void;
 }
 
 class NavigationContainer extends React.Component<NavigationContainerProps> {
@@ -17,7 +17,8 @@ class NavigationContainer extends React.Component<NavigationContainerProps> {
         <Row key={`nav-button-${item.ref}`}>
           <NavigationButton
             selection={index}
-            onClick={this.props.onClick} >{`${item.value}`}</NavigationButton>
+            onClick={this.props.onClick}
+          >{`${item.value}`}</NavigationButton>
         </Row>
       );
     });
@@ -30,8 +31,12 @@ class NavigationContainer extends React.Component<NavigationContainerProps> {
         {navigationRows}
         <div className="crl-nav-divider" />
         <Row className="crl-nav-pagenav">
-          <NavigationButton selection="prev" onClick= {this.props.onClick}>{'<'}</NavigationButton>
-          <NavigationButton selection="next" onClick= {this.props.onClick}>{'>'}</NavigationButton>
+          <NavigationButton selection="prev" onClick={this.props.onClick}>
+            {'<'}
+          </NavigationButton>
+          <NavigationButton selection="next" onClick={this.props.onClick}>
+            {'>'}
+          </NavigationButton>
         </Row>
       </Container>
     );
