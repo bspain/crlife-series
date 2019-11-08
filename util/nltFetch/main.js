@@ -10,11 +10,11 @@ fetch(request)
 
         if (process.argv[3])
         {
-            return encodeURIComponent(bibletext.toString());
+            console.log(encodeURIComponent(bibletext.toString()));
         }
         else
         {
-            return bibletext.toString();
+            console.log(bibletext.toString());
         }
     });
 

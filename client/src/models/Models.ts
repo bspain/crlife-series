@@ -5,14 +5,14 @@ export interface NavigationItem {
 
 export interface ContentItem {
   id: string;
-  type: "passage" | "reading";
+  type: 'passage' | 'reading';
   title: string;
   value: string;
 }
 
 export interface Series {
-  title: string,
-  subtitle: string,
+  title: string;
+  subtitle: string;
   navigation: NavigationItem[];
   content: ContentItem[];
   next: string;

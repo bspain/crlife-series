@@ -1,13 +1,36 @@
 .crl-con-container {
     .crl-con-banner {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: sans-serif;
         text-align: center;
+        margin-bottom: 36px;
 
         h1 {
             font-size: 2.2rem;
         }
         h2 {
             font-size: 1.8rem;
+        }
+    }
+
+    .clr-con-title {
+        font-family: serif;
+        font-size: 1.8rem;
+    }
+
+    .clr-con-body {
+        margin-bottom: 24px;
+    }
+
+    .clr-con-title, .clr-con-body {
+        width: 100%;
+        margin-right: 8px;
+        margin-left: 8px;
+    }
+
+    // NLT API CSS overrides
+    .NLT {
+        h2 {
+            font-size: 1.6rem;
         }
     }
 }

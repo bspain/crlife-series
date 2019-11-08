@@ -17,19 +17,26 @@ class ContentContainer extends React.Component<ContentContainerProps> {
         <Row
           key={`content-${content.id}`}
           id={content.id}
-          className={`clr-con-type-${content.type}`}>
-          dangerouslySetInnerHTML={{ __html: decodeURIComponent(content.value) }}
+          className={`clr-con-type-${content.type}`}
+        >
+          <div className={`clr-con-title`}>{content.title}</div>
+          <div
+            className={`clr-con-body`}
+            dangerouslySetInnerHTML={{ __html: decodeURIComponent(content.value) }}
+          ></div>
         </Row>
       );
     });
 
-    return <Container className="crl-con-container" fluid={true}>
-      <div className="crl-con-banner">
-        <h1>{this.props.series.title}</h1>
-        <h2>{this.props.series.subtitle}</h2>
-      </div>
-      {contentRows}
-    </Container>;
+    return (
+      <Container className="crl-con-container" fluid={true}>
+        <div className="crl-con-banner">
+          <h1>{this.props.series.title}</h1>
+          <h2>{this.props.series.subtitle}</h2>
+        </div>
+        {contentRows}
+      </Container>
+    );
   }
 
   componentDidMount(): void {
