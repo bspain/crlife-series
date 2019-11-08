@@ -22,6 +22,24 @@ class ContentContainer extends React.Component<ContentContainerProps> {
 
     return <Container fluid={true}>{contentRows}</Container>;
   }
+
+  componentDidMount() {
+      this.scrollToSelection();
+  }
+
+  componentDidUpdate() {
+      this.scrollToSelection();
+  }
+
+  scrollToSelection() {
+      if (!this.props.selected) {
+          window.scrollTo(0, 0);
+      }
+      else
+      {
+          document.getElementById(this.props.items[this.props.selected].id).scrollIntoView();
+      }
+  }
 }
 
 export { ContentContainer };

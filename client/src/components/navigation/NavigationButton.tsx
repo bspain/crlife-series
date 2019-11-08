@@ -1,9 +1,20 @@
 import * as React from 'react';
 import { Col } from 'reactstrap';
 
-const NavigationButton: React.SFC = props => {
+interface NavigationButtonProps
+{
+  selection: number | "prev" | "next";
+  onClick(selection: number | "prev" | "next") : void;
+}
+
+const NavigationButton: React.SFC<NavigationButtonProps> = props => {
+
+  const handleClick = () => {
+    props.onClick(props.selection);
+  }
+
   return (
-    <Col>
+    <Col onClick={handleClick} >
       <div className="crl-nav-button text-center">{props.children}</div>
     </Col>
   );
