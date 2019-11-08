@@ -38,7 +38,7 @@ class App extends React.Component<IAppProps, IAppState> {
   render(): JSX.Element {
     return (
       <div className="App">
-        <ContentContainer items={this.state.series.content} selected={this.state.selected} />
+        <ContentContainer series={this.state.series} selected={this.state.selected} />
         <NavigationContainer
           expanded={this.state.navExpanded}
           items={this.state.series.navigation}

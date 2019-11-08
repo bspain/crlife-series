@@ -1,0 +1,838 @@
+div.NLT {
+    font-family: serif
+}
+
+div.NLT .text-critical-ital {
+    font-style: italic
+}
+
+div.NLT .cn {
+    vertical-align: top;
+    font-size: 75%;
+    font-weight: bold
+}
+
+div.NLT .ital {
+    font-style: italic
+}
+
+div.NLT .psa-title-sc {
+    text-transform: uppercase;
+    font-size: 80%
+}
+
+div.NLT .red {
+    color: #8b0000
+}
+
+div.NLT .red-ital {
+    font-style: italic;
+    color: #8b0000
+}
+
+div.NLT .red-sc {
+    text-transform: uppercase;
+    font-size: 80%;
+    color: #8b0000
+}
+
+div.NLT .sc {
+    font-variant: small-caps
+}
+
+div.NLT .sc-ital {
+    font-variant: small-caps;
+    font-style: italic
+}
+
+div.NLT .subhead-ital {
+    font-style: italic
+}
+
+div.NLT .subhead-sc {
+    text-transform: uppercase;
+    font-size: 80%
+}
+
+div.NLT .tc-ital {
+    font-style: italic
+}
+
+div.NLT .vn {
+    vertical-align: text-top;
+    font-size: 75%;
+    font-weight: bold;
+    padding-right: .1em
+}
+
+div.NLT .vnfig-1digit {
+    display: none
+}
+
+div.NLT .sub {
+    vertical-align: bottom;
+    font-size: 75%
+}
+
+div.NLT .sup {
+    vertical-align: top;
+    font-size: 75%
+}
+
+div.NLT a {}
+
+div.NLT a.book {}
+
+div.NLT a.chapter {}
+
+div.NLT a.tr {
+    text-decoration: none
+}
+
+div.NLT a.verse {}
+
+div.NLT div.chapter {}
+
+div.NLT div.toc p {
+    line-height: 1.5
+}
+
+div.NLT i {}
+
+div.NLT p {
+    margin: 0 0 0 0
+}
+
+div.NLT p.body {
+    text-indent: 1em
+}
+
+div.NLT p.body-ch, div.NLT p.body-ch-hd, div.NLT p.body-fl, div.NLT p.body-hd {
+    text-indent: 0
+}
+
+div.NLT p.body-fl-sp {
+    margin-top: .5em;
+    text-indent: 0
+}
+
+div.NLT p.body-sp {
+    margin-top: .5em;
+    text-indent: 1em
+}
+
+div.NLT p.chapter-number {
+    float: left;
+    padding-right: .5ex;
+    text-indent: 0;
+    vertical-align: top;
+    line-height: 1;
+    text-indent: 0;
+    font-size: 300%;
+    font-weight: normal
+}
+
+div.NLT p.chapter-number .cw {
+    display: none
+}
+
+div.NLT p.chapter-number .tr {
+    vertical-align: super
+}
+
+div.NLT p.chapter-number a:link {
+    text-decoration: none
+}
+
+div.NLT p.chapter-number a.tr:link {
+    text-decoration: underline
+}
+
+div.NLT p.ext-body {
+    margin-left: 1em;
+    text-indent: 1em
+}
+
+div.NLT p.ext-body-ch, div.NLT p.ext-body-fl {
+    margin-left: 1em;
+    text-indent: 0
+}
+
+div.NLT p.ext-body-fl-sp {
+    margin-top: .5em;
+    margin-left: 1em;
+    text-indent: 0
+}
+
+div.NLT p.ext-body-sp {
+    margin-top: .5em;
+    margin-left: 1em;
+    text-indent: 1em
+}
+
+div.NLT p.ext-hanging, div.NLT p.ext-hanging-ch {
+    margin-left: 1em;
+    text-indent: -1em
+}
+
+div.NLT p.ext-hanging-sp {
+    margin-top: .5em;
+    margin-left: 1em;
+    text-indent: -1em
+}
+
+div.NLT p.ext-list {
+    margin-left: 2em;
+    text-indent: -1em
+}
+
+div.NLT p.ext-list-vn {
+    margin-left: 2em;
+    text-indent: -1.25em
+}
+
+div.NLT p.ext-poet1 {
+    margin-left: 4em;
+    text-indent: -2em
+}
+
+div.NLT p.ext-poet1-sp {
+    margin-top: .5em;
+    margin-left: 4em;
+    text-indent: -2em
+}
+
+div.NLT p.ext-poet1-vn {
+    margin-left: 4em;
+    text-indent: -2.25em
+}
+
+div.NLT p.ext-poet1-vn-sp {
+    margin-top: .5em;
+    margin-left: 4em;
+    text-indent: -2.25em
+}
+
+div.NLT p.ext-poet2 {
+    margin-left: 4em;
+    text-indent: -1em
+}
+
+div.NLT p.h1 {
+    text-indent: 0;
+    font-family: serif;
+    font-size: 150%
+}
+
+div.NLT p.list {
+    margin-left: 2em;
+    text-indent: -1em
+}
+
+div.NLT p.list-sp {
+    margin-top: .5em;
+    margin-left: 2em;
+    text-indent: -1em
+}
+
+div.NLT p.list-vn {
+    margin-left: 1.5em;
+    text-indent: -1.25em
+}
+
+div.NLT p.list-vn-sp {
+    margin-top: .5em;
+    margin-left: 1.5em;
+    text-indent: -1.25em
+}
+
+div.NLT p.poet-fr {
+    margin-left: 5em;
+    text-align: right;
+    font-style: italic
+}
+
+div.NLT p.poet1 {
+    margin-left: 3em;
+    text-indent: -2em
+}
+
+div.NLT p.poet1-sp {
+    margin-top: .5em;
+    margin-left: 3em;
+    text-indent: -2em
+}
+
+div.NLT p.poet1-vn, div.NLT p.poet1-vn-ch {
+    margin-left: 3em;
+    text-indent: -2.25em
+}
+
+div.NLT p.poet1-vn-sp {
+    margin-top: .5em;
+    margin-left: 3em;
+    text-indent: -2.25em
+}
+
+div.NLT p.poet2 {
+    margin-left: 3em;
+    text-indent: -1em
+}
+
+div.NLT p.poet2-vn {
+    margin-left: 3em;
+    text-indent: -1.25em
+}
+
+div.NLT p.poet3 {
+    margin-left: 4em;
+    text-indent: -1em
+}
+
+div.NLT p.psa-book {
+    margin-top: 1em;
+    text-indent: 0;
+    font-style: italic;
+    font-weight: bold
+}
+
+div.NLT p.psa-hebrew {
+    margin-top: .5em;
+    text-indent: 0;
+    font-style: italic
+}
+
+div.NLT p.psa-title {
+    text-indent: 0;
+    font-style: italic
+}
+
+div.NLT p.rule {
+    margin: 1em 2em 0 2em;
+    border-top: 1px solid #000;
+    width: 50%;
+    text-align: center;
+    text-indent: 0
+}
+
+div.NLT p.selah {
+    text-align: right;
+    text-indent: 0;
+    font-style: italic
+}
+
+div.NLT p.sos-speaker {
+    margin-top: .5em;
+    text-indent: 0;
+    font-style: italic
+}
+
+div.NLT p.subhead {
+    margin-top: .5em;
+    margin-left: 0;
+    text-indent: 0;
+    font-style: italic;
+    font-weight: bold
+}
+
+div.NLT p.text-critical {
+    margin-top: 1em;
+    text-align: center;
+    text-indent: 0
+}
+
+div.NLT table {
+    margin-top: .5em
+}
+
+div.NLT table p {
+    line-height: 1
+}
+
+div.NLT th {
+    font-weight: normal;
+    font-style: italic
+}
+
+div.NLT table.col2a {
+    margin-top: 0;
+    margin-left: .5em
+}
+
+div.NLT table.col2a-sp {
+    margin-top: .5em;
+    margin-left: .5em
+}
+
+div.NLT table.col2b-sp {
+    margin-top: .5em;
+    margin-left: .5em
+}
+
+div.NLT table.col3-sp {
+    margin-top: .5em;
+    margin-left: .5em
+}
+
+div.NLT table.ext-col2a {
+    margin-left: 1em
+}
+
+div.NLT td {
+    padding: 0 .5em 0 0
+}
+
+div.NLT th {
+    font-style: italic
+}
+
+div.NLT tr {}
+
+div.NLT-Front .cap {
+    text-transform: uppercase
+}
+
+div.NLT-Front .cap-ital {
+    text-transform: uppercase;
+    font-style: italic
+}
+
+div.NLT-Front .sr-trans {
+    font-weight: bold
+}
+
+div.NLT-Front p {
+    margin: 0;
+    text-indent: 1em
+}
+
+div.NLT-Front p.body-1 {
+    margin-left: 1em;
+    text-indent: 1em
+}
+
+div.NLT-Front p.body-fl {
+    text-indent: 0
+}
+
+div.NLT-Front p.body-first {
+    margin-top: 12pt;
+    text-indent: 0
+}
+
+div.NLT-Front p.body-fl-sp {
+    margin-top: 9pt;
+    text-indent: 0
+}
+
+div.NLT-Front p.h1 {
+    margin-top: 12pt;
+    text-indent: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: sans-serif
+}
+
+div.NLT-Front p.h2 {
+    margin-top: 9pt;
+    text-indent: 0;
+    font-weight: bold;
+    font-family: sans-serif
+}
+
+div.NLT-Front p.h3 {
+    margin-top: 9pt;
+    text-indent: 0;
+    font-style: italic;
+    font-family: sans-serif
+}
+
+div.NLT-Front p.h2-nlt-intro {
+    margin-top: 9pt;
+    text-indent: 0;
+    font-style: italic
+}
+
+div.NLT-Front p.h1-team {
+    margin-top: 24pt;
+    text-indent: 0;
+    font-weight: bold
+}
+
+div.NLT-Front p.h2-team {
+    margin-top: 9pt;
+    text-indent: 0
+}
+
+div.NLT-Front p.list {
+    margin-left: 1em;
+    text-indent: -1em
+}
+
+div.NLT-Front p.list-sp {
+    margin-top: 9pt;
+    margin-left: 1em;
+    text-indent: -1em
+}
+
+div.NLT-Front p.signature {
+    margin-top: 9pt;
+    text-indent: 0;
+    text-align: right
+}
+
+div.NLT-Front p.supertitle {
+    text-indent: 0
+}
+
+div.NLT-Front p.td {
+    text-indent: 0
+}
+
+div.NLT-Front p.td-1 {
+    margin-top: 6pt;
+    text-indent: 0
+}
+
+div.NLT-Front p.td-h1 {
+    margin-top: 6pt;
+    text-indent: 0;
+    font-weight: bold
+}
+
+div.NLT-Front p.td-h2 {
+    margin-top: 6pt;
+    text-indent: 0;
+    font-style: italic
+}
+
+div.NLT-Front p.title {
+    margin-top: 24pt;
+    margin-bottom: 12pt;
+    text-indent: 0;
+    font-size: 150%
+}
+
+div.NLT-Front p.title-1 {
+    margin-top: 24pt;
+    text-indent: 0;
+    font-size: 150%
+}
+
+div.NLT-Front p.title-2 {
+    margin-bottom: 12pt;
+    text-indent: 0;
+    font-size: 150%
+}
+
+div.NLT-Front .sc {
+    font-variant: small-caps
+}
+
+div.NLT-Front table {}
+
+div.NLT-Front td {}
+
+div.NLT-Front tr {}
+
+div.NLT-Front ul {}
+
+div.NLT-TextNote {
+    margin-top: 6pt
+}
+
+div.NLT-TextNote a.tn-ref {
+    font-weight: bold
+}
+
+div.NLT-TextNote i {}
+
+div.NLT-TextNote p.dn {
+    text-indent: 0
+}
+
+div.NLT-TextNote p {
+    margin-left: 2.5em;
+    text-indent: -2.5em
+}
+
+div.NLT-TextNote p.tn {
+    text-indent: 0
+}
+
+div.NLT-TextNote span.tn-ital {
+    font-style: italic
+}
+
+div.NLT-TextNote span.tn-ref-bold-sc {
+    font-weight: bold;
+    font-size: 80%;
+    text-transform: uppercase
+}
+
+div.NLT-TextNote span.tn-sc {
+    font-size: 80%;
+    text-transform: uppercase
+}
+
+div.NLT-TextNote span.tn-sc-ital {
+    font-style: italic;
+    font-size: 80%;
+    text-transform: uppercase
+}
+
+div.NLT-TextNote span.tn-vn {
+    vertical-align: text-top;
+    font-size: 75%
+}
+
+div.NLT-TextNote sub {
+    vertical-align: bottom;
+    font-size: 75%
+}
+
+div.NLT-TextNote sup {
+    vertical-align: top;
+    font-size: 75%
+}
+
+div.section-head+p.psa-title+.poet1-vn-sp {
+    padding-left: 2.5em
+}
+
+.BibleText .tn {
+    float: right;
+    clear: right;
+    width: 10em;
+    border: 1px solid gray;
+    margin-left: 6pt;
+    margin-top: 3pt;
+    margin-bottom: 3pt;
+    padding: 3pt;
+    background-color: #fff;
+    text-indent: 0;
+    font-size: 90%;
+    line-height: 1
+}
+
+.BibleText {
+    line-height: 1.33
+}
+
+#top-nav {
+    width: 100%;
+    text-align: right;
+    font-size: 11pt
+}
+
+#top-nav a {
+    text-decoration: none
+}
+
+#top-nav a:hover, #top-nav a:focus, #top-nav a:active {
+    text-decoration: underline
+}
+
+#top-nav a:link, #top-nav a:visited {
+    color: #ca9c42
+}
+
+#messages .error {
+    color: red;
+    margin: 6pt 0
+}
+
+#messages .warning {
+    color: #630;
+    margin: 6pt 0
+}
+
+#messages .notice {
+    color: green;
+    margin: 6pt 0
+}
+
+#main_body {
+    line-height: 1.33
+}
+
+#main_body .right {
+    text-align: right
+}
+
+#main_body .float-right {
+    float: right
+}
+
+#main_body .clear-right {
+    clear: right
+}
+
+#main_body .bar-graph {
+    background-color: #ca9c42
+}
+
+#main_body h1, #main_body h2, #main_body h3 {
+    margin: 12pt 0 0 0;
+    padding: 0;
+    font-weight: bold
+}
+
+#main_body p {
+    margin: 0 0 12pt 0;
+    padding: 0
+}
+
+#main_body td {
+    vertical-align: top
+}
+
+#main_body b, #main_body strong {
+    font-weight: bold
+}
+
+#main_body sub {
+    font-size: 75%;
+    vertical-align: baseline
+}
+
+#main_body sup {
+    font-size: 75%;
+    vertical-align: top
+}
+
+#main_body pre {
+    overflow: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word
+}
+
+#main_body code, #main_body kbd, #main_body pre, #main_body samp {
+    font-family: monospace
+}
+
+#main_body table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 12pt
+}
+
+#main_body td, #main_body th {
+    vertical-align: top;
+    padding: 0
+}
+
+#main_body a {
+    text-decoration: none
+}
+
+#main_body a:hover, #main_body a:focus, #main_body a:active {
+    text-decoration: underline
+}
+
+#main_body a:link, #main_body a:visited {
+    color: #ca9c42
+}
+
+#main_body table th {
+    font-weight: bold;
+    text-align: left
+}
+
+#main_body table th, #main_body table td {
+    padding: 3pt 6pt
+}
+
+#main_body table.parameters th, #main_body table.data th {
+    background-color: #f1e3ba
+}
+
+#main_body table.data tr:nth-child(2n) {
+    background-color: rgba(241, 227, 186, .3)
+}
+
+#main_body table.parameters {
+    border: 1px solid #f1e3ba
+}
+
+#main_body table.parameters tr {
+    border-top: 1px solid #f1e3ba
+}
+
+#main_body input {
+    padding: 6pt;
+    margin: 3pt 3pt 3pt 0;
+    font-size: 14pt
+}
+
+#main_body textarea {
+    padding: 3pt;
+    font-size: 12pt
+}
+
+#main_body input[type=submit] {
+    background-color: #ca9c42;
+    color: #fff;
+    border: 1px solid rgba(64, 62, 62, 1);
+    border-radius: 10px
+}
+
+#main_body select {
+    background-color: #f1e3ba;
+    padding: 3pt 6pt
+}
+
+#main_body input[type=submit]:hover {
+    background-color: rgba(64, 62, 62, 1)
+}
+
+#main_body ul, #main_body ol {
+    display: list-item;
+    margin-left: 1em;
+    margin-bottom: 12pt
+}
+
+#main_body ul li {
+    list-style: square outside;
+    margin-left: 1em
+}
+
+span.fract-num, span.tn-fract-num {
+    vertical-align: top;
+    font-size: 75%
+}
+
+span.fract-den, span.tn-fract-den {
+    vertical-align: bottom;
+    font-size: 75%
+}
+
+span.fract-sep, span.tn-fract-sep {
+    font-style: italic
+}
+
+span.tn-fract-ital-num {
+    vertical-align: top;
+    margin-right: -.1em;
+    font-size: 75%;
+    font-style: italic
+}
+
+span.tn-fract-ital-den {
+    vertical-align: bottom;
+    margin-left: -.1em;
+    font-size: 75%;
+    font-style: italic
+}
+
+span.tn-fract-ital-sep {
+    font-style: italic
+}
+
+div.section-head+.poet1-vn-ch {
+    padding-left: 1em
+}
+
+span.tn-ital, p.psa-title-hd {
+    font-style: italic
+}
