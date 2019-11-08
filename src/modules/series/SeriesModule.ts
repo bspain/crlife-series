@@ -1,9 +1,10 @@
 import { ModuleRequestHandler } from '../../descriptors/ModuleRequestHandler';
 import Logger from '../../logger';
 import { SeriesProvider } from '../../descriptors/SeriesProvider';
+import { ClientContentService } from '../../services/clientContent/ClientContentService';
 
 export class SeriesModule implements ModuleRequestHandler {
-    constructor(private seriesProvider: SeriesProvider, private logger: Logger) {}
+    constructor(private seriesProvider: SeriesProvider, private clientContentService: ClientContentService, private logger: Logger) {}
 
     async requestHandler(
         request: import('express-serve-static-core').Request,
@@ -25,7 +26,9 @@ export class SeriesModule implements ModuleRequestHandler {
         }
 
         const data = await this.seriesProvider.getSeriesData(seriesName, request.query.ref);
+        const client = await this.clientContentService.getClient(data);
+
         response.status(200);
-        response.send(data);
+        response.send(client);
     }
 }

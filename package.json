@@ -13,6 +13,7 @@
     "start:debug": "node --inspect-brk -r ts-node/register ./src/main.ts",
     "dev": "APP_ENV=development DEBUG=app* node -r ts-node/register ./src/main.ts",
     "dev:watch": "nodemon",
+    "packclient": "node ./util/packclient.js",
     "validate": "yarn lint"
   },
   "nodemonConfig": {
@@ -32,7 +33,8 @@
   "dependencies": {
     "appfig": "^1.0.0",
     "cheerio": "^1.0.0-rc.3",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "ncp": "^2.0.0"
   },
   "devDependencies": {
     "@types/cheerio": "^0.22.13",

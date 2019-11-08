@@ -7,6 +7,7 @@ interface LOG_MODULES {
   MODULE_HEALTH: string;
   MODULE_SERIES: string;
   SERVICE_LOCAL_SERIES: string;
+  SERIVCE_CLIENT: string;
 }
 
 interface LOG_MODULE_INDEXER {
@@ -18,7 +19,8 @@ export const LOG_MODULE: LOG_MODULES & LOG_MODULE_INDEXER = {
   HELPERS: 'app:helpers',
   MODULE_HEALTH: 'app:module:health',
   MODULE_SERIES: 'app:module:series',
-  SERVICE_LOCAL_SERIES: 'app:service:local-series'
+  SERVICE_LOCAL_SERIES: 'app:service:local-series',
+  SERIVCE_CLIENT: 'app:service:client',
 };
 
 export default class Logger {
