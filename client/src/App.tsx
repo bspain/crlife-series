@@ -32,7 +32,7 @@ class App extends React.Component<IAppProps, IAppState> {
     }
     else
     {
-      this.setState({ selected: selection as number })
+      this.setState({ selected: selection as number, navExpanded: false })
     }
   }
 
