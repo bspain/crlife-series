@@ -7,7 +7,7 @@ import { NavigationButton } from '../NavigationButton';
 
 describe('NavigationContainer', () => {
   it('should render backward and forward nav buttons', () => {
-    const wrapper = mount(<NavigationContainer items={[]} />);
+    const wrapper = mount(<NavigationContainer expanded={true} items={[]} />);
     const buttons = wrapper.find(NavigationButton);
     expect(buttons).toHaveLength(2);
 
@@ -22,7 +22,7 @@ describe('NavigationContainer', () => {
       { ref: 'ref3', value: 'val3' }
     ];
 
-    const wrapper = mount(<NavigationContainer items={navItems} />);
+    const wrapper = mount(<NavigationContainer expanded={true} items={navItems} />);
     const buttons = wrapper.find(NavigationButton);
     expect(buttons).toHaveLength(5);
 

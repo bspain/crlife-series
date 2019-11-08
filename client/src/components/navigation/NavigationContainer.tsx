@@ -10,25 +10,12 @@ interface INagivationItem {
 
 interface INavigationContainerProps {
   items: INagivationItem[];
-}
-
-interface INavigationContainerState {
-  items: INagivationItem[];
   expanded: boolean;
 }
 
-class NavigationContainer extends React.Component<
-  INavigationContainerProps,
-  INavigationContainerState
-> {
-  constructor(props: INavigationContainerProps) {
-    super(props);
-
-    this.state = { items: props.items, expanded: false };
-  }
-
+class NavigationContainer extends React.Component<INavigationContainerProps> {
   render(): JSX.Element {
-    const navigationRows = this.state.items.map(item => {
+    const navigationRows = this.props.items.map(item => {
       return (
         <Row key={`nav-button-${item.ref}`}>
           <NavigationButton>{`${item.value}`}</NavigationButton>
@@ -37,7 +24,10 @@ class NavigationContainer extends React.Component<
     });
 
     return (
-      <Container fluid={true} className="crl-nav-container">
+      <Container
+        fluid={true}
+        className={`crl-nav-container ${this.props.expanded ? 'expanded' : 'collapsed'}`}
+      >
         {navigationRows}
         <div className="crl-nav-divider" />
         <Row className="crl-nav-pagenav">

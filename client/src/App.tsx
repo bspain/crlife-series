@@ -33,7 +33,10 @@ class App extends React.Component<{}, IAppState> {
 
     return (
       <div className="App">
-        <NavigationContainer items={navItems}></NavigationContainer>
+        <NavigationContainer
+          expanded={this.state.navExpanded}
+          items={navItems}
+        ></NavigationContainer>
         <Chevron
           direction={this.state.navExpanded ? 'down' : 'up'}
           onClick={this.onChevronClicked}

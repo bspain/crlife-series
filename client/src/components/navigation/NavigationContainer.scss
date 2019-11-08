@@ -25,4 +25,16 @@
         left: calc(50% - 40px);
         position: relative;    
     }
+
+    &.collapsed 
+    {
+        height: 23px;
+        transition: height 500ms ease 0ms; 
+    }
+
+    &.expanded 
+    {
+        height: 324px;
+        transition: height 500ms ease 0ms; 
+    }
 }
