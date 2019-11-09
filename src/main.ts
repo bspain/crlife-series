@@ -13,24 +13,6 @@ console.log(`Process env DEBUG: ${process.env.DEBUG}`);
 console.log(`meta : ${config.get('meta')}`);
 console.log(`azure_storage: ${config.get('azure_storage')}`);
 
-async function main() {
-  const app = await appProvider.initializeExpressApp();
-
-  // Setup App
-  const httpServer = http.createServer(app);
-
-  // Register app listener events
-  httpServer.on('error', (error: { code: string; syscall?: string }) => {
-    onError(error, app);
-  });
-
-  httpServer.on('listening', () => {
-    onListening(httpServer);
-  });
-
-  httpServer.listen(config.get('port'));
-}
-
 /**
  * Event listener for HTTP server "error" event.
  */
@@ -66,5 +48,22 @@ function onListening(server: http.Server): void {
   logger.debug('SERVER', 'Listening on ' + bind);
 }
 
-main();
+async function main(): Promise<void> {
+  const app = await appProvider.initializeExpressApp();
 
+  // Setup App
+  const httpServer = http.createServer(app);
+
+  // Register app listener events
+  httpServer.on('error', (error: { code: string; syscall?: string }) => {
+    onError(error, app);
+  });
+
+  httpServer.on('listening', () => {
+    onListening(httpServer);
+  });
+
+  httpServer.listen(config.get('port'));
+}
+
+main();

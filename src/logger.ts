@@ -20,7 +20,7 @@ export const LOG_MODULE: LOG_MODULES & LOG_MODULE_INDEXER = {
   MODULE_HEALTH: 'app:module:health',
   MODULE_SERIES: 'app:module:series',
   SERVICE_LOCAL_SERIES: 'app:service:local-series',
-  SERIVCE_CLIENT: 'app:service:client',
+  SERIVCE_CLIENT: 'app:service:client'
 };
 
 export default class Logger {
