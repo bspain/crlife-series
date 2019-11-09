@@ -23,6 +23,7 @@ export class AppProvider {
   
     // App routes
     app.get('/health', healthModule.requestHandler.bind(healthModule));
+    app.use('/public', express.static('public'));
     app.use('*', seriesModule.requestHandler.bind(seriesModule));
   
     return app;
