@@ -24,6 +24,7 @@ module.exports = {
       // e.g. "@typescript-eslint/explicit-function-return-type": "off",
       "react/prop-types" : "off", // Typescript provides effective property type checks
       "@typescript-eslint/interface-name-prefix" : "off"
-    }
+    },
+    root: true
   };
   

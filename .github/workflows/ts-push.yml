@@ -19,9 +19,12 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Client build and verify
       run: |
-        pwd
+        cd client
         yarn install
         yarn verify
-      working-directory: ./client
+        cd ..
+        yarn install
+        yarn verify
+        yarn packclient
       env:
         CI: true
