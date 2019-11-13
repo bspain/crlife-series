@@ -48,8 +48,6 @@ function onListening(server: http.Server): void {
   logger.debug('SERVER', 'Listening on ' + bind);
 }
 
-main();
-
 async function main(): Promise<void> {
   const app = await appProvider.initializeExpressApp();
 
@@ -68,3 +66,4 @@ async function main(): Promise<void> {
   httpServer.listen(config.get('port'));
 }
 
+main();
