@@ -20,7 +20,6 @@ jobs:
     - name: yarn build and verify
       run: |
         yarn install
-        yarn build
-        yarn validate
+        yarn verify
       env:
         CI: true
