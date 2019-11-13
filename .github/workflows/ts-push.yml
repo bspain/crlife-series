@@ -17,14 +17,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: yarn build and verify
+    - name: Client build and verify
       run: |
-        cd client
         yarn install
         yarn verify
-        cd ..
-        yarn install
-        yarn verify
-        yarn packclient
+      working-directory: ./client
       env:
         CI: true
