@@ -46,6 +46,9 @@ function onListening(server: http.Server): void {
   const addr = server.address();
   const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
   logger.debug('SERVER', 'Listening on ' + bind);
+
+  // Always log port listening on
+  console.log(`Listening on ${bind}`);
 }
 
 async function main(): Promise<void> {
