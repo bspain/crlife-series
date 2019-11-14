@@ -14,7 +14,7 @@
     "dev": "APP_ENV=development DEBUG=app* node -r ts-node/register ./src/main.ts",
     "dev:watch": "nodemon",
     "packclient": "node ./util/packclient.js",
-    "validate": "yarn lint"
+    "verify": "yarn lint && yarn build"
   },
   "nodemonConfig": {
     "ignore": [

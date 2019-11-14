@@ -1,6 +1,7 @@
 module.exports = {
     parser: '@typescript-eslint/parser', // Specifies the ESLint parser
     extends: [
+      'prettier',
       'eslint:recommended',
       'plugin:react/recommended',
       'plugin:@typescript-eslint/recommended',
@@ -23,6 +24,7 @@ module.exports = {
       // e.g. "@typescript-eslint/explicit-function-return-type": "off",
       "react/prop-types" : "off", // Typescript provides effective property type checks
       "@typescript-eslint/interface-name-prefix" : "off"
-    }
+    },
+    root: true
   };
   
