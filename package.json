@@ -2,7 +2,6 @@
   "name": "crlife-series-server",
   "version": "1.0.0",
   "description": "Crossroads Church Discipleship Server",
-  "main": "dist/main.js",
   "repository": "git@github.com:bspain/crlife-series.git",
   "author": "Benjamin Spain <benjamin@thespains.net>",
   "license": "MIT",
