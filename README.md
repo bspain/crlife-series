@@ -7,7 +7,7 @@ Daily devotional content is provided though Crossroads Church, Woodbury MN.  [cr
 
 The application is currently hosted at: https://crlife-series.azurewebsites.net/
 
-## Application Components
+# Application Components
 The application consists of a **client** component (`/client`) and a **server** component (`/src/`)
 
 **Server** : Express / Node.js
@@ -16,16 +16,9 @@ The application consists of a **client** component (`/client`) and a **server** 
 
 The code base uses **yarn** for package management and development tasks: https://yarnpkg.com
 
+# Local Development
 
-
-## Release
-Releases are handled through the GitHub UI.  Click on 'releases' in the repository to create a new release.
-
-Deployment of a release is handled via GitHub actions.  When a release is created, the `./.github/workflows/on-release.yml` action will take care of deployment to Microsoft Azure.
-
-## Local Development
-
-### Client Development
+## Client Development
 Install and build the client application first
 
 ```
@@ -42,7 +35,7 @@ At this point, the client can be developed on and tested independently (using pr
 
 The client is then accessible at `http://localhost:8080`
 
-### Server Development
+## Server Development
 Once the **client** has been built, install and build the server application, and then package the client
 
 ```
@@ -57,4 +50,14 @@ The server can then be started in development mode
 ```
 
 The server is accessible at `http://localhost:3000` with series modules served (`/daily` and `/devo`)
+
+# Content
+For local development, all application content is located in the `data` directory.
+
+For production, content will be served through **Azure Storage** [ TBD ]
+
+# Release
+Releases are handled through the GitHub UI.  Click on 'releases' in the repository to create a new release.
+
+Deployment of a release is handled via GitHub actions.  When a release is created, the `./.github/workflows/on-release.yml` action will take care of deployment to Microsoft Azure.
 
