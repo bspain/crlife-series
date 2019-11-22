@@ -1,4 +1,4 @@
-name: Push Validation
+name: On Push Actions
 
 on: [push]
 
