@@ -5,7 +5,7 @@ export interface NavigationItem {
 
 export interface ContentItem {
   id: string;
-  type: 'passage' | 'reading';
+  type: 'devotion' | 'passage';
   title: string;
   value: string;
 }
