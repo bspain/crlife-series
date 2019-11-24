@@ -5,7 +5,8 @@ import { WriteOptions, action as WriteAction } from '../write/action';
 interface PassageOptions {
     reference: string,
     file: string, 
-    passageId: string
+    passageId: string,
+    title: string
 }
 
 async function action(options: PassageOptions, apiKey: string) {
@@ -43,6 +44,18 @@ async function action(options: PassageOptions, apiKey: string) {
     }
 
     WriteAction(writeOptions);
+
+    // Update the title if provided
+    if (options.title !== undefined && options.title !== '')
+    {
+        const writeTitleOptions: WriteOptions = {
+            file: options.file,
+            query: `$.content[?(@.id=='${options.passageId}')].title`,
+            value: options.title
+        }
+
+        WriteAction(writeTitleOptions);
+    }
 }
 
 export {

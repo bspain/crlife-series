@@ -11,6 +11,7 @@ program
     .requiredOption('-r, --reference <nlt reference>', 'NLT.TO passages reference (e.g. "John.1" or "Ezekiel.45:13-46:24" ')
     .option(fileOption.switch, fileOption.description)
     .option('-p, --passage-id <passage identifier>', 'id of the content passage (e.g. "ot-passage")')
+    .option('-t, --title <title>', 'Updated content title (e.g. "Ezekiel 45:13 - 46:24')
     .action(function passageAction(options: PassageOptions) {
         // Ensure NLT_API key is set
         if (process.env.NLT_KEY == undefined || process.env.NLT_KEY == '')
