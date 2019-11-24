@@ -1,0 +1,61 @@
+{
+    "title": "Daily Devotional",
+    "subtitle": "November 23, %%year%%",
+    "subtitle2": "by Larry Stockstill",
+    "next": "1124",
+    "prev": "1122",
+    "navigation": [
+        {
+            "ref": "devotion",
+            "value": "Daily Devotional"
+        },
+        {
+            "ref": "ot-passage",
+            "value": "Old Testament Passage"
+        },
+        {
+            "ref": "nt-passage",
+            "value": "New Testament Passage"
+        },
+        {
+            "ref": "ps-passage",
+            "value": "Psalms Passage"
+        },
+        {
+            "ref": "pr-passage",
+            "value": "Proverbs Passage"
+        }
+    ],
+    "content": [
+        {
+            "id": "devotion",
+            "type": "devotion",
+            "title": "Daily Devotional",
+            "value": ""
+        },
+        {
+            "id": "ot-passage",
+            "type": "passage",
+            "title": "",
+            "value": ""
+        },
+        {
+            "id": "nt-passage",
+            "type": "passage",
+            "title": "",
+            "value": ""
+        },
+        {
+            "id": "ps-passage",
+            "type": "passage",
+            "title": "",
+            "value": ""
+        },
+        {
+            "id": "pr-passage",
+            "type": "passage",
+            "title": "",
+            "value": ""
+        }
+    ]
+}
