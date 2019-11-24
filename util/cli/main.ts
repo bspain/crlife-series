@@ -1,8 +1,5 @@
 import { Command } from 'commander';
-
-interface PassageOptions {
-    reference: string
-}
+import { PassageOptions, action as PassageAction } from './passage/action';
 
 const program = new Command();
 
@@ -19,7 +16,7 @@ program
             process.exit();
         }
 
-        console.log("passageAction in progress...")
+        PassageAction(options, process.env.NLT_KEY);
     });
 
 
