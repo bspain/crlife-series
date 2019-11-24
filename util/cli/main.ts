@@ -23,10 +23,9 @@ program
         }
 
         // If file or passageId, then ensure the others as well
-        if (options.file !== '' || options.passageId !== '')
+        if (options.file !== undefined || options.passageId !== undefined)
         {
-            if (options.file == '' || options.file == undefined ||  
-                options.passageId == '' || options.passageId == undefined)
+            if (options.file == undefined && options.passageId == undefined)
             {
                 console.error("Both file and passageId are required if using either option.");
                 program.help();
