@@ -1,5 +1,5 @@
-import { readFileSync, existsSync, writeFileSync } from 'fs';
-
+import { readFileSync, existsSync } from 'fs';
+import { WriteOptions, action as WriteAction } from '../write/action';
 
 interface DevotionOptions {
     sourceFile: string,
@@ -18,7 +18,18 @@ async function action(options: DevotionOptions) {
         throw new Error(`Target file not found: ${options.targetFile}`);        
     }
 
-    const sourceContent = readFileSync(options.sourceFile).toString('UTF-8');
+    const sourceContent = encodeURIComponent(readFileSync(options.sourceFile).toString('UTF-8'));
 
-    const writeOptions = 
+    const writeOptions : WriteOptions = {
+        file: options.targetFile,
+        query: `$.content[?(@.id=='${options.devotionId}')].value`,
+        value: sourceContent
+    }
+
+    WriteAction(writeOptions);
+}
+
+export {
+    DevotionOptions,
+    action
 }

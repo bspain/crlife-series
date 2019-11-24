@@ -1,9 +1,10 @@
 import { Command } from 'commander';
 import { PassageOptions, action as PassageAction } from './passage/action';
+import { DevotionOptions, action as DevotionAction } from './devotion/action';
 import { WriteOptions, action as WriteAction } from './write/action';
 
 const program = new Command();
-const fileOption = { switch: '-f, --file <file>', description: 'path to file (e.g. "../../data/series/daily/1123.json' };
+const fileOption = { switch: '-f, --file <file>', description: 'path to file (e.g. "../../data/series/daily/1123.json")' };
 
 program
     .command('passage')
@@ -35,6 +36,19 @@ program
 
         PassageAction(options, process.env.NLT_KEY);
     });
+
+program.command('devotion')
+    .description('Read a devotion input HTML fragment and encode it into a series content item')
+    .requiredOption('-s, --source-file <source file>', 'Path to fragement input file (e.g. "./devo-temp.html")')
+    .requiredOption('-t, --target-file <target file>', 'Path to series content file (e.g. "../../data/series/daily/1123.json")')
+    .option('-d, --devotion-id', 'id of the content devotion item (Default. "devotion")')
+    .action(function devotionAction(options: DevotionOptions) {
+        if (options.devotionId == undefined || options.devotionId == '')
+        {
+            options.devotionId = 'devotion'
+        }
+        DevotionAction(options);
+    })
 
 program.command('write')
     .description('Write a set of content into a Series data JSON file')

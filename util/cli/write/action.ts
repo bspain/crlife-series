@@ -32,14 +32,14 @@ async function action(options: WriteOptions) {
     // Ensure result nodes is only 1
     if(content.length !== 1)
     {
-        throw new Error(`Cannot update value, JSON query returned ${content.length} nodes.`)
+        throw new Error(`Cannot update value, JSON query '${options.query}' returned ${content.length} nodes.`)
     }
 
     const path = stringify(content[0].path);
     value(json, path, options.value);
 
     // Write back to file
-    writeFileSync(options.file, JSON.stringify(json));
+    writeFileSync(options.file, JSON.stringify(json, null, 4));
     console.log(`Update written to ${options.file}`);
 }
 
