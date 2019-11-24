@@ -18,6 +18,12 @@ async function action(options: PassageOptions, apiKey: string) {
     }
 
     const payload = await response.text();
+
+    if (payload == '')
+    {
+        throw new Error(`api.nlt.to returned no data, check your reference?  ${options.reference}`)
+    }
+
     const biblePayload = cheerio.load(payload)('div[id="bibletext"]');
     biblePayload.removeAttr('id');
 
