@@ -2,8 +2,6 @@
     "title": "Daily Devotional",
     "subtitle": "November 24, %%year%%",
     "subtitle2": "by Larry Stockstill",
-    "prev": "1123",
-    "next": "1125",
     "navigation": [
         {
             "ref": "devotion",
