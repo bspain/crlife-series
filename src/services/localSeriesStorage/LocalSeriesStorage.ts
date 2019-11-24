@@ -34,7 +34,9 @@ export class LocalSeriesStorage implements SeriesProvider {
     const data = this.getDataPathOrDefault(seriesEntry, reference);
     const fullDataPath = join(__dirname, './../../../data/series', seriesEntry.path, data.path);
 
-    const fullDataJson = await readLocalFile(fullDataPath).then(data => JSON.parse(data.toString()))
+    const fullDataJson = await readLocalFile(fullDataPath).then(data =>
+      JSON.parse(data.toString())
+    );
 
     // Populate next,prev
     const { prev, next } = this.getNextPrevForReference(seriesEntry, data.ref);
@@ -44,7 +46,10 @@ export class LocalSeriesStorage implements SeriesProvider {
     return JSON.stringify(fullDataJson);
   }
 
-  getDataPathOrDefault(seriesEntry: SeriesEntry, reference: string | null): { ref: string, path: string } {
+  getDataPathOrDefault(
+    seriesEntry: SeriesEntry,
+    reference: string | null
+  ): { ref: string; path: string } {
     // No reference, return default
     if (!reference) {
       return seriesEntry.data[0];
@@ -58,21 +63,24 @@ export class LocalSeriesStorage implements SeriesProvider {
     }
   }
 
-  getNextPrevForReference(seriesEntry: SeriesEntry, reference: string) : { prev: string, next: string }
-  {
+  getNextPrevForReference(
+    seriesEntry: SeriesEntry,
+    reference: string
+  ): { prev: string; next: string } {
     const index = seriesEntry.data.findIndex(d => d.ref == reference);
 
     // Boundaries
-    if (index == 0)
-    {
-      return { prev: seriesEntry.data[seriesEntry.data.length - 1].ref, next: seriesEntry.data[index + 1].ref }
+    if (index == 0) {
+      return {
+        prev: seriesEntry.data[seriesEntry.data.length - 1].ref,
+        next: seriesEntry.data[index + 1].ref
+      };
     }
 
-    if (index == seriesEntry.data.length - 1)
-    {
-      return { prev: seriesEntry.data[index - 1].ref, next: seriesEntry.data[0].ref }
+    if (index == seriesEntry.data.length - 1) {
+      return { prev: seriesEntry.data[index - 1].ref, next: seriesEntry.data[0].ref };
     }
 
-    return { prev: seriesEntry.data[index - 1].ref, next: seriesEntry.data[index + 1].ref }
+    return { prev: seriesEntry.data[index - 1].ref, next: seriesEntry.data[index + 1].ref };
   }
 }
