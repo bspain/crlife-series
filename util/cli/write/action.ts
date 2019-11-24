@@ -1,4 +1,4 @@
-import { readFileSync, existsSync } from 'fs';
+import { readFileSync, existsSync, writeFileSync } from 'fs';
 import { nodes, stringify, value } from 'jsonpath';
 
 interface WriteOptions {
@@ -22,27 +22,25 @@ async function action(options: WriteOptions) {
     */
     const content = nodes(json, options.query);
 
-    if (options.value)
+    if (!options.value)
     {
-        // Ensure result nodes is only 1
-        if(content.length !== 1)
-        {
-            throw new Error(`Cannot update value, JSON query returned ${content.length} nodes.`)
-        }
-
-        // What's the stringified path
-        const path = stringify(content[0].path);
-        console.info(path);
-
-        value(json, path, options.value);
-
-        console.info(json);
+        // Just log what we found and return
+        console.info(content);
+        return;
     }
-    else
+
+    // Ensure result nodes is only 1
+    if(content.length !== 1)
     {
-        // Just log what we got
-        console.log(content);
+        throw new Error(`Cannot update value, JSON query returned ${content.length} nodes.`)
     }
+
+    const path = stringify(content[0].path);
+    value(json, path, options.value);
+
+    // Write back to file
+    writeFileSync(options.file, JSON.stringify(json));
+    console.log(`Update written to ${options.file}`);
 }
 
 export {
