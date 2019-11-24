@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 import * as cheerio from 'cheerio';
-
+import { WriteOptions, action as WriteAction } from '../write/action';
 
 interface PassageOptions {
     reference: string,
@@ -27,7 +27,22 @@ async function action(options: PassageOptions, apiKey: string) {
     const biblePayload = cheerio.load(payload)('div[id="bibletext"]');
     biblePayload.removeAttr('id');
 
-    console.log(biblePayload.toString());
+    if (options.file == undefined || options.file == '')
+    {
+        // Write out what we got and exit
+        console.log(biblePayload.toString());
+        return;
+    }
+
+    // Encode bible passage content and inject into file
+    const encodedPayload = encodeURIComponent(biblePayload.toString())
+    const writeOptions : WriteOptions = {
+        file: options.file,
+        query: `$.content[?(@.id=='${options.passageId}')].value`,
+        value: encodedPayload
+    }
+
+    WriteAction(writeOptions);
 }
 
 export {
