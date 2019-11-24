@@ -1,5 +1,6 @@
 import { Command } from 'commander';
 import { PassageOptions, action as PassageAction } from './passage/action';
+import { WriteOptions, action as WriteAction } from './write/action';
 
 const program = new Command();
 
@@ -19,6 +20,14 @@ program
         PassageAction(options, process.env.NLT_KEY);
     });
 
+program.command('write')
+    .description('Write a set of content into a Series data JSON file')
+    .requiredOption('-f, --file <file>', 'path to file (e.g. "../../data/series/daily/1123.json')
+    .requiredOption('-q, --query <query>', 'JSON query to target property (e.g. "$.content[?(@.id==\"devotion\")]" -- See https://github.com/dchester/jsonpath')
+    .option('-v, --value <value>', 'New value to write.')
+    .action(function writeAction(options: WriteOptions) {
+        WriteAction(options);
+    })
 
 program.parse(process.argv);
 
