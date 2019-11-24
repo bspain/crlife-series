@@ -5,8 +5,8 @@
             "path": "/daily",
             "data": [
                 {
-                    "ref": "0601",
-                    "path": "/0601.json"
+                    "ref": "1123",
+                    "path": "/1123.json"
                 }
             ]
         },
