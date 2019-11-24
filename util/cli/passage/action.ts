@@ -3,7 +3,9 @@ import * as cheerio from 'cheerio';
 
 
 interface PassageOptions {
-    reference: string
+    reference: string,
+    file: string, 
+    passageId: string
 }
 
 async function action(options: PassageOptions, apiKey: string) {
