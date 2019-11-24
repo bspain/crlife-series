@@ -31,23 +31,56 @@ export class LocalSeriesStorage implements SeriesProvider {
     );
     const seriesEntry = this.seriesMetadata.series.filter(entry => entry.name == seriesName)[0];
 
-    const dataPath = this.getDataPathOrDefault(seriesEntry, reference);
-    const fullDataPath = join(__dirname, './../../../data/series', seriesEntry.path, dataPath);
+    const data = this.getDataPathOrDefault(seriesEntry, reference);
+    const fullDataPath = join(__dirname, './../../../data/series', seriesEntry.path, data.path);
 
-    return readLocalFile(fullDataPath).then(data => data.toString());
+    const fullDataJson = await readLocalFile(fullDataPath).then(data =>
+      JSON.parse(data.toString())
+    );
+
+    // Populate next,prev
+    const { prev, next } = this.getNextPrevForReference(seriesEntry, data.ref);
+    fullDataJson.prev = prev;
+    fullDataJson.next = next;
+
+    return JSON.stringify(fullDataJson);
   }
 
-  getDataPathOrDefault(seriesEntry: SeriesEntry, reference: string | null): string {
+  getDataPathOrDefault(
+    seriesEntry: SeriesEntry,
+    reference: string | null
+  ): { ref: string; path: string } {
     // No reference, return default
     if (!reference) {
-      return seriesEntry.data[0].path;
+      return seriesEntry.data[0];
     }
 
     // Is the reference valid?
     if (seriesEntry.data.some(d => d.ref == reference)) {
-      return seriesEntry.data.filter(d => d.ref == reference)[0].path;
+      return seriesEntry.data.filter(d => d.ref == reference)[0];
     } else {
-      return seriesEntry.data[0].path;
+      return seriesEntry.data[0];
     }
+  }
+
+  getNextPrevForReference(
+    seriesEntry: SeriesEntry,
+    reference: string
+  ): { prev: string; next: string } {
+    const index = seriesEntry.data.findIndex(d => d.ref == reference);
+
+    // Boundaries
+    if (index == 0) {
+      return {
+        prev: seriesEntry.data[seriesEntry.data.length - 1].ref,
+        next: seriesEntry.data[index + 1].ref
+      };
+    }
+
+    if (index == seriesEntry.data.length - 1) {
+      return { prev: seriesEntry.data[index - 1].ref, next: seriesEntry.data[0].ref };
+    }
+
+    return { prev: seriesEntry.data[index - 1].ref, next: seriesEntry.data[index + 1].ref };
   }
 }

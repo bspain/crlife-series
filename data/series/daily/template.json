@@ -1,0 +1,59 @@
+{
+    "title": "Daily Devotional",
+    "subtitle": "-Month-, %%year%%",
+    "subtitle2": "by Larry Stockstill",
+    "navigation": [
+        {
+            "ref": "devotion",
+            "value": "Daily Devotional"
+        },
+        {
+            "ref": "ot-passage",
+            "value": "Old Testament"
+        },
+        {
+            "ref": "nt-passage",
+            "value": "New Testament"
+        },
+        {
+            "ref": "ps-passage",
+            "value": "Psalms"
+        },
+        {
+            "ref": "pr-passage",
+            "value": "Proverbs"
+        }
+    ],
+    "content": [
+        {
+            "id": "devotion",
+            "type": "devotion",
+            "title": "Daily Devotional",
+            "value": ""
+        },
+        {
+            "id": "ot-passage",
+            "type": "passage",
+            "title": "Old Testament Reading",
+            "value": ""
+        },
+        {
+            "id": "nt-passage",
+            "type": "passage",
+            "title": "New Testament Reading",
+            "value": ""
+        },
+        {
+            "id": "ps-passage",
+            "type": "passage",
+            "title": "Psalms Reading",
+            "value": ""
+        },
+        {
+            "id": "pr-passage",
+            "type": "passage",
+            "title": "Proverbs Reading",
+            "value": ""
+        }
+    ]
+}
