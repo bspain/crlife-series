@@ -15,7 +15,7 @@ export class AppProvider {
 
     await localSeriesStorage.initializeSeriesMetadata();
 
-    const healthModule = new HealthModule(this.logger);
+    const healthModule = new HealthModule(this.logger, this.config);
     const clientService = new ClientContentService(this.logger);
     const seriesModule = new SeriesModule(localSeriesStorage, clientService, this.logger);
 

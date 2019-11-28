@@ -1,8 +1,9 @@
 import { ModuleRequestHandler } from '../../descriptors/ModuleRequestHandler';
 import Logger from '../../logger';
+import { ConfigProvider } from '../../providers/ConfigProvider';
 
 export class HealthModule implements ModuleRequestHandler {
-  constructor(private logger: Logger) {}
+  constructor(private logger: Logger, private config: ConfigProvider) {}
 
   requestHandler(
     request: import('express-serve-static-core').Request,
@@ -10,6 +11,9 @@ export class HealthModule implements ModuleRequestHandler {
   ): void {
     this.logger.debug('MODULE_HEALTH', 'handling health request');
 
+    /**
+     * Environment variables
+     */
     const visibleSettings: { [key: string]: string | number } = {};
 
     // For a list of all keys (and other things) available to apps, see: http://whatazurewebsiteenvironmentvariablesareavailable.azurewebsites.net/
@@ -17,14 +21,13 @@ export class HealthModule implements ModuleRequestHandler {
       'DEBUG',
       'META',
       '_DAILY_AZURE',
+      'APP_ENV',
 
       // Azure App Service specific keys
       'NODE_VERSION',
       'YARN_VERSION'
     ];
     const maskedKeys = [
-      '_CUSTOM_APP_SETTING',
-      'NLT_API_KEY',
       'AZURE_STORAGE_ACCOUNT_NAME',
       'AZURE_STORAGE_ACCOUNT_ACCESS_KEY',
       'AZURE_STORAGE_CONTAINER_NAME'
@@ -54,6 +57,7 @@ export class HealthModule implements ModuleRequestHandler {
     response.send(
       JSON.stringify({
         status: 'OK',
+        config: this.config.logConfig(),
         environment: visibleSettings
       })
     );

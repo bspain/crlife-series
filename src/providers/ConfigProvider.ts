@@ -12,10 +12,23 @@ const AppConfig = stringEnum([
   'azure_storage',
   'app_config_name',
   'app_config_loaded',
-  'AZURE_STORAGE_CONTAINER_NAME',
+  'AZURE_STORAGE_ACCOUNT_NAME',
   'AZURE_STORAGE_ACCOUNT_ACCESS_KEY',
   'AZURE_STORAGE_CONTAINER_NAME'
 ]);
+
+const AppConfigWhitelist: string[] = [
+  AppConfig.meta,
+  AppConfig.port,
+  AppConfig.azure_storage,
+  AppConfig.app_config_name,
+  AppConfig.app_config_loaded
+];
+
+const AppConfigMaskedlist: string[] = [
+  AppConfig.AZURE_STORAGE_CONTAINER_NAME,
+  AppConfig.AZURE_STORAGE_ACCOUNT_ACCESS_KEY
+];
 
 type AppConfigKey = keyof typeof AppConfig;
 
@@ -57,7 +70,7 @@ class ConfigProvider {
     this.config.set(key, value);
   }
 
-  get(key: AppConfigKey): string | boolean {
+  get(key: AppConfigKey): string | number | boolean {
     return this.config.get(key);
   }
 
@@ -65,10 +78,23 @@ class ConfigProvider {
     return this._env;
   }
 
-  dumpConfig() {
-    return Object.keys(AppConfig).map(key => {
-      return { key, value: this.get(key as AppConfigKey) };
+  logConfig(): { [key: string]: string | boolean | number } {
+    const loggedConfig: { [key: string]: string | boolean | number } = {};
+
+    // Only allow whitelisted values
+    Object.keys(AppConfig).forEach(key => {
+      const value = this.get(key as AppConfigKey) || '';
+
+      if (AppConfigWhitelist.includes(key)) {
+        loggedConfig[key] = value;
+      } else if (AppConfigMaskedlist.includes(key)) {
+        loggedConfig[key] = value.toString().replace(/./g, '#');
+      } else {
+        loggedConfig[key] = '';
+      }
     });
+
+    return loggedConfig;
   }
 }
 
