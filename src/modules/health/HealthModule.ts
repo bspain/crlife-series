@@ -1,6 +1,6 @@
 import { ModuleRequestHandler } from '../../descriptors/ModuleRequestHandler';
 import Logger from '../../logger';
-import { ConfigProvider } from '../../providers/ConfigProvider';
+import { ConfigProvider, AppConfig } from '../../providers/ConfigProvider';
 
 export class HealthModule implements ModuleRequestHandler {
   constructor(private logger: Logger, private config: ConfigProvider) {}
@@ -57,6 +57,7 @@ export class HealthModule implements ModuleRequestHandler {
     response.send(
       JSON.stringify({
         status: 'OK',
+        version: this.config.get(AppConfig.package_version),
         config: this.config.logConfig(),
         environment: visibleSettings
       })

@@ -5,6 +5,7 @@ import appfig = require('appfig');
 import { stringEnum } from '../util/stringEnum';
 
 const appConfigFile = path.join(__dirname, './../../app.config.json'); // Secrets that should not be committed to source control
+const packageFile = path.join(__dirname, './../../package.json'); // Version information
 
 const AppConfig = stringEnum([
   'meta',
@@ -12,6 +13,8 @@ const AppConfig = stringEnum([
   'azure_storage',
   'app_config_name',
   'app_config_loaded',
+  'package_json_loaded',
+  'package_version',
   'AZURE_STORAGE_ACCOUNT_NAME',
   'AZURE_STORAGE_ACCOUNT_ACCESS_KEY',
   'AZURE_STORAGE_CONTAINER_NAME'
@@ -22,7 +25,9 @@ const AppConfigWhitelist: string[] = [
   AppConfig.port,
   AppConfig.azure_storage,
   AppConfig.app_config_name,
-  AppConfig.app_config_loaded
+  AppConfig.app_config_loaded,
+  AppConfig.package_json_loaded,
+  AppConfig.package_version
 ];
 
 const AppConfigMaskedlist: string[] = [
@@ -63,6 +68,13 @@ class ConfigProvider {
       for (const propName in appJsonConfig) {
         this.config.set(propName, appJsonConfig[propName]);
       }
+    }
+
+    // Consume version from package.json
+    if (fs.existsSync(packageFile)) {
+      const packageJson = JSON.parse(fs.readFileSync(packageFile).toString());
+      this.set('package_json_loaded', true);
+      this.set('package_version', packageJson['version']);
     }
   }
 
