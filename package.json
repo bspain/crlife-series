@@ -11,7 +11,7 @@
     "start": "node -r ts-node/register ./src/main.ts",
     "start:debug": "node --inspect-brk -r ts-node/register ./src/main.ts",
     "dev": "APP_ENV=development DEBUG=app* node -r ts-node/register ./src/main.ts",
-    "dev:watch": "nodemon",
+    "dev:watch": "APP_ENV=development nodemon",
     "packclient": "node ./util/packclient.js",
     "verify": "yarn lint && yarn build"
   },
