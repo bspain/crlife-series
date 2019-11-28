@@ -1,5 +1,5 @@
 import 'jest';
-import { ConfigProvider } from '../ConfigProvider';
+import { ConfigProvider, AppConfig, AppConfigKey } from '../ConfigProvider';
 
 describe('Config provider', () => {
   afterEach(() => {
@@ -20,5 +20,12 @@ describe('Config provider', () => {
     const config = new ConfigProvider();
     expect(config.env).toBe('production');
     // expect(config.get("meta")).toBe("production");
+  });
+
+  it('will expose all config as key value pairs', () => {
+    // Should match values in config/development.json
+    const dumpedConfig = new ConfigProvider().dumpConfig();
+    expect(dumpedConfig).toContainEqual({ key: AppConfig.meta, value: 'local' });
+    expect(dumpedConfig).toContainEqual({ key: AppConfig.port, value: 3000 });
   });
 });
