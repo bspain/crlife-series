@@ -9,25 +9,25 @@ export class SeriesContentService implements SeriesProvider {
   constructor(private dataProvider: SeriesDataProvider, private logger: Logger) {}
 
   initializeSeriesMetadata(): Promise<void> {
-    this.logger.debug('SERVICE_LOCAL_SERIES', `Getting series metadata`);
+    this.logger.debug('SERVICE_SERIES', `Getting series metadata`);
     return this.dataProvider.getSeriesMetadata().then(data => {
       this.seriesMetadata = data;
     });
   }
 
   get seriesList(): string[] {
-    this.logger.debug('SERVICE_LOCAL_SERIES', 'Enumerating series list');
+    this.logger.debug('SERVICE_SERIES', 'Enumerating series list');
     return this.seriesMetadata.series.map(entry => entry.name);
   }
 
   seriesExists(seriesName: string): boolean {
-    this.logger.debug('SERVICE_LOCAL_SERIES', `Looking locally for ${seriesName}`);
+    this.logger.debug('SERVICE_SERIES', `Looking locally for ${seriesName}`);
     return this.seriesMetadata.series.some(entry => entry.name == seriesName);
   }
 
   async getSeriesData(seriesName: string, reference: string | null): Promise<LinkedSeries> {
     this.logger.debug(
-      'SERVICE_LOCAL_SERIES',
+      'SERVICE_SERIES',
       `Looking locally for data for ${seriesName} : ${reference}`
     );
     const seriesEntry = this.seriesMetadata.series.filter(entry => entry.name == seriesName)[0];
