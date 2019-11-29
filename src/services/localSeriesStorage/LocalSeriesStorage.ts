@@ -1,21 +1,17 @@
-import { readFile } from 'fs';
-import { join } from 'path';
-import { promisify } from 'util';
 import Logger from '../../logger';
 import { SeriesProvider } from '../../descriptors/SeriesProvider';
-import { SeriesMetadata, SeriesEntry } from '../../models/SeriesMedata';
-
-const readLocalFile: (pathname: string) => Promise<Buffer> = promisify(readFile);
+import { SeriesMetadata, SeriesEntry, LinkedSeries } from '../../models/SeriesMedata';
+import { SeriesDataProvider } from '../../providers/LocalSeriesDataProvider';
 
 export class LocalSeriesStorage implements SeriesProvider {
   private seriesMetadata: SeriesMetadata;
 
-  constructor(private logger: Logger) {}
+  constructor(private dataProvider: SeriesDataProvider, private logger: Logger) {}
 
-  async initializeSeriesMetadata(): Promise<void> {
-    return readLocalFile(join(__dirname, './../../../data/series/meta.json')).then(data => {
-      this.seriesMetadata = JSON.parse(data.toString()) as SeriesMetadata;
-      this.logger.debug('SERVICE_LOCAL_SERIES', `Series metadata loaded successfully`);
+  initializeSeriesMetadata(): Promise<void> {
+    this.logger.debug('SERVICE_LOCAL_SERIES', `Getting series metadata`);
+    return this.dataProvider.getSeriesMetadata().then(data => {
+      this.seriesMetadata = data;
     });
   }
 
@@ -29,7 +25,7 @@ export class LocalSeriesStorage implements SeriesProvider {
     return this.seriesMetadata.series.some(entry => entry.name == seriesName);
   }
 
-  async getSeriesData(seriesName: string, reference: string | null): Promise<string> {
+  async getSeriesData(seriesName: string, reference: string | null): Promise<LinkedSeries> {
     this.logger.debug(
       'SERVICE_LOCAL_SERIES',
       `Looking locally for data for ${seriesName} : ${reference}`
@@ -37,18 +33,13 @@ export class LocalSeriesStorage implements SeriesProvider {
     const seriesEntry = this.seriesMetadata.series.filter(entry => entry.name == seriesName)[0];
 
     const data = this.getDataPathOrDefault(seriesEntry, reference);
-    const fullDataPath = join(__dirname, './../../../data/series', seriesEntry.path, data.path);
-
-    const fullDataJson = await readLocalFile(fullDataPath).then(data =>
-      JSON.parse(data.toString())
-    );
+    const seriesData = await this.dataProvider.getSeriesEntry(seriesEntry.path, data.path);
 
     // Populate next,prev
     const { prev, next } = this.getNextPrevForReference(seriesEntry, data.ref);
-    fullDataJson.prev = prev;
-    fullDataJson.next = next;
+    const seriesLinkedData: LinkedSeries = { prev, next, ...seriesData };
 
-    return JSON.stringify(fullDataJson);
+    return seriesLinkedData;
   }
 
   getDataPathOrDefault(

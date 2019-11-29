@@ -28,7 +28,7 @@ export class SeriesModule implements ModuleRequestHandler {
     }
 
     const data = await this.seriesProvider.getSeriesData(seriesName, request.query.ref);
-    const client = await this.clientContentService.getClient(data);
+    const client = await this.clientContentService.getClient(JSON.stringify(data));
 
     response.status(200);
     response.send(client);
