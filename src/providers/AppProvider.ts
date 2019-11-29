@@ -3,7 +3,7 @@ import { ConfigProvider } from './ConfigProvider';
 import { HealthModule } from '../modules/health/HealthModule';
 import Logger from '../logger';
 import { SeriesModule } from '../modules/series/SeriesModule';
-import { LocalSeriesStorage } from '../services/localSeriesStorage/LocalSeriesStorage';
+import { SeriesContentService } from '../services/seriesContent/SeriesContentService';
 import { ClientContentService } from '../services/clientContent/ClientContentService';
 import { LocalSeriesDataProvider } from './LocalSeriesDataProvider';
 
@@ -16,7 +16,7 @@ export class AppProvider {
     // TODO: Pivot this between local storage and azure based on config
     const seriesDataProvider = new LocalSeriesDataProvider(this.logger);
 
-    const localSeriesStorage = new LocalSeriesStorage(seriesDataProvider, this.logger);
+    const localSeriesStorage = new SeriesContentService(seriesDataProvider, this.logger);
     await localSeriesStorage.initializeSeriesMetadata();
 
     const healthModule = new HealthModule(this.logger, this.config);

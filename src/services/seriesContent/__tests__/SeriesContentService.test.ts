@@ -1,14 +1,14 @@
 import 'jest';
-import { LocalSeriesStorage } from '../LocalSeriesStorage';
+import { SeriesContentService } from '../SeriesContentService';
 import Logger from '../../../logger';
 import { LocalSeriesDataProvider } from '../../../providers/LocalSeriesDataProvider';
 
 describe('Local series storage', () => {
-  let seriesStorage: LocalSeriesStorage;
+  let seriesStorage: SeriesContentService;
 
   beforeAll(async () => {
     const logger = new Logger();
-    seriesStorage = new LocalSeriesStorage(new LocalSeriesDataProvider(logger), logger);
+    seriesStorage = new SeriesContentService(new LocalSeriesDataProvider(logger), logger);
     await seriesStorage.initializeSeriesMetadata();
   });
 

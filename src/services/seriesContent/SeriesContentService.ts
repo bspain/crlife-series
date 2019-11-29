@@ -3,7 +3,7 @@ import { SeriesProvider } from '../../descriptors/SeriesProvider';
 import { SeriesMetadata, SeriesEntry, LinkedSeries } from '../../models/SeriesMedata';
 import { SeriesDataProvider } from '../../providers/LocalSeriesDataProvider';
 
-export class LocalSeriesStorage implements SeriesProvider {
+export class SeriesContentService implements SeriesProvider {
   private seriesMetadata: SeriesMetadata;
 
   constructor(private dataProvider: SeriesDataProvider, private logger: Logger) {}
