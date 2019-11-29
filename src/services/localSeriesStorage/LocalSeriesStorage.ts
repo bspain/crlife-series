@@ -19,6 +19,11 @@ export class LocalSeriesStorage implements SeriesProvider {
     });
   }
 
+  get seriesList(): string[] {
+    this.logger.debug('SERVICE_LOCAL_SERIES', 'Enumerating series list');
+    return this.seriesMetadata.series.map(entry => entry.name);
+  }
+
   seriesExists(seriesName: string): boolean {
     this.logger.debug('SERVICE_LOCAL_SERIES', `Looking locally for ${seriesName}`);
     return this.seriesMetadata.series.some(entry => entry.name == seriesName);
