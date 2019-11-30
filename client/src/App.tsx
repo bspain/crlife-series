@@ -4,13 +4,13 @@ import { ContentContainer } from './components/content/ContentContainer';
 import { NavigationContainer } from './components/navigation/NavigationContainer';
 import { Chevron } from './components/chevron/Chevron';
 import './App.scss';
-import { LinkedSeries } from '@models/Models';
+import { SeriesEntry } from '@models/Models';
 
 interface IAppProps {
-  series: LinkedSeries;
+  entry: SeriesEntry;
 }
 interface IAppState {
-  series: LinkedSeries;
+  entry: SeriesEntry;
   selected: number;
   navExpanded: boolean;
 }
@@ -19,7 +19,7 @@ class App extends React.Component<IAppProps, IAppState> {
   constructor(props: IAppProps) {
     super(props);
 
-    this.state = { series: props.series, selected: 0, navExpanded: false };
+    this.state = { entry: props.entry, selected: 0, navExpanded: false };
   }
 
   onChevronClicked = (): void => {
@@ -28,7 +28,7 @@ class App extends React.Component<IAppProps, IAppState> {
 
   onContentNavClicked = (selection: number | 'prev' | 'next'): void => {
     if (selection == 'prev' || selection == 'next') {
-      const refValue = selection == 'prev' ? this.props.series.prev : this.props.series.next;
+      const refValue = selection == 'prev' ? this.props.entry.prev : this.props.entry.next;
       window.location.href = `${window.location.origin}${window.location.pathname}?ref=${refValue}`;
     } else {
       this.setState({ selected: selection as number, navExpanded: false });
@@ -38,10 +38,10 @@ class App extends React.Component<IAppProps, IAppState> {
   render(): JSX.Element {
     return (
       <div className="App">
-        <ContentContainer series={this.state.series} selected={this.state.selected} />
+        <ContentContainer entry={this.state.entry} selected={this.state.selected} />
         <NavigationContainer
           expanded={this.state.navExpanded}
-          items={this.state.series.navigation}
+          items={this.state.entry.navigation}
           onClick={this.onContentNavClicked}
         ></NavigationContainer>
         <Chevron

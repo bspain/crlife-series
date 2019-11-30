@@ -2,13 +2,13 @@
 import 'jest';
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import { LinkedSeries } from '@models/Models';
+import { SeriesEntry } from '@models/Models';
 import App from '../App';
 import { NavigationContainer } from '../components/navigation/NavigationContainer';
 
 describe('App component', () => {
   it('should render a NaviagtionContainer', () => {
-    const series: LinkedSeries = {
+    const entry: SeriesEntry = {
       title: '',
       subtitle: '',
       navigation: [],
@@ -16,7 +16,7 @@ describe('App component', () => {
       next: '',
       prev: ''
     };
-    const wrapper = shallow(<App series={series} />);
+    const wrapper = shallow(<App entry={entry} />);
     const navContainer = wrapper.find(NavigationContainer);
     expect(navContainer).toHaveLength(1);
   });

@@ -10,29 +10,31 @@ export interface ContentItem {
   value: string;
 }
 
-export interface Series {
+export interface EntryData { // EntryData
   title: string;
   subtitle: string;
   navigation: NavigationItem[];
   content: ContentItem[];
 }
 
-export interface LinkedSeries extends Series {
+export interface EntryLinks {
   next: string;
   prev: string;
 }
 
-export interface SeriesData {
+export interface SeriesEntry extends EntryData, EntryLinks {}
+
+export interface SeriesEntryReference {
   ref: string;
   path: string;
 }
 
-export interface SeriesEntry {
+export interface Series {
   name: string;
   path: string;
-  data: SeriesData[];
+  data: SeriesEntryReference[];
 }
 
 export interface SeriesMetadata {
-  series: SeriesEntry[];
+  series: Series[];
 }

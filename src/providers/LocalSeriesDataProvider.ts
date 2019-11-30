@@ -1,14 +1,14 @@
 import { readFile } from 'fs';
 import { join } from 'path';
 import { promisify } from 'util';
-import { SeriesMetadata, Series } from '@models/Models';
+import { SeriesMetadata, EntryData } from '@models/Models';
 import Logger from '../logger';
 
 const readLocalFile: (pathname: string) => Promise<Buffer> = promisify(readFile);
 
 interface SeriesDataProvider {
   getSeriesMetadata(): Promise<SeriesMetadata>;
-  getSeriesEntry(seriesPath: string, entryPath: string): Promise<Series>;
+  getSeriesEntry(seriesPath: string, entryPath: string): Promise<EntryData>;
 }
 
 class LocalSeriesDataProvider implements SeriesDataProvider {
@@ -21,7 +21,7 @@ class LocalSeriesDataProvider implements SeriesDataProvider {
     });
   }
 
-  getSeriesEntry(seriesPath: string, entryPath: string): Promise<Series> {
+  getSeriesEntry(seriesPath: string, entryPath: string): Promise<EntryData> {
     const fullDataPath = join(__dirname, './../../data/series', seriesPath, entryPath);
 
     return readLocalFile(fullDataPath).then(data => {
@@ -29,7 +29,7 @@ class LocalSeriesDataProvider implements SeriesDataProvider {
         'PROVIDER_LOCAL_SERIES',
         `Series entry data at ${seriesPath} ${entryPath} loaded successfully`
       );
-      return JSON.parse(data.toString()) as Series;
+      return JSON.parse(data.toString()) as EntryData;
     });
   }
 }

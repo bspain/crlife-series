@@ -1,6 +1,6 @@
 import Logger from '../../logger';
 import { SeriesProvider } from '../../descriptors/SeriesProvider';
-import { SeriesMetadata, SeriesEntry, LinkedSeries } from '@models/Models';
+import { SeriesMetadata, Series, EntryLinks } from '@models/Models';
 import { SeriesDataProvider } from '../../providers/LocalSeriesDataProvider';
 
 export class SeriesContentService implements SeriesProvider {
@@ -25,7 +25,7 @@ export class SeriesContentService implements SeriesProvider {
     return this.seriesMetadata.series.some(entry => entry.name == seriesName);
   }
 
-  async getSeriesData(seriesName: string, reference: string | null): Promise<LinkedSeries> {
+  async getSeriesData(seriesName: string, reference: string | null): Promise<EntryLinks> {
     this.logger.debug(
       'SERVICE_SERIES',
       `Looking locally for data for ${seriesName} : ${reference}`
@@ -37,13 +37,13 @@ export class SeriesContentService implements SeriesProvider {
 
     // Populate next,prev
     const { prev, next } = this.getNextPrevForReference(seriesEntry, data.ref);
-    const seriesLinkedData: LinkedSeries = { prev, next, ...seriesData };
+    const seriesLinkedData: EntryLinks = { prev, next, ...seriesData };
 
     return seriesLinkedData;
   }
 
   getDataPathOrDefault(
-    seriesEntry: SeriesEntry,
+    seriesEntry: Series,
     reference: string | null
   ): { ref: string; path: string } {
     // No reference, return default
@@ -59,10 +59,7 @@ export class SeriesContentService implements SeriesProvider {
     }
   }
 
-  getNextPrevForReference(
-    seriesEntry: SeriesEntry,
-    reference: string
-  ): { prev: string; next: string } {
+  getNextPrevForReference(seriesEntry: Series, reference: string): { prev: string; next: string } {
     const index = seriesEntry.data.findIndex(d => d.ref == reference);
 
     // Boundaries
