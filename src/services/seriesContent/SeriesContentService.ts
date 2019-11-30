@@ -1,6 +1,6 @@
 import Logger from '../../logger';
 import { SeriesProvider } from '../../descriptors/SeriesProvider';
-import { SeriesMetadata, Series, EntryLinks } from '@models/Models';
+import { SeriesMetadata, Series, SeriesEntry } from '@models/Models';
 import { SeriesDataProvider } from '../../providers/LocalSeriesDataProvider';
 
 export class SeriesContentService implements SeriesProvider {
@@ -25,7 +25,7 @@ export class SeriesContentService implements SeriesProvider {
     return this.seriesMetadata.series.some(entry => entry.name == seriesName);
   }
 
-  async getSeriesData(seriesName: string, reference: string | null): Promise<EntryLinks> {
+  async getSeriesData(seriesName: string, reference: string | null): Promise<SeriesEntry> {
     this.logger.debug(
       'SERVICE_SERIES',
       `Looking locally for data for ${seriesName} : ${reference}`
@@ -37,7 +37,7 @@ export class SeriesContentService implements SeriesProvider {
 
     // Populate next,prev
     const { prev, next } = this.getNextPrevForReference(seriesEntry, data.ref);
-    const seriesLinkedData: EntryLinks = { prev, next, ...seriesData };
+    const seriesLinkedData: SeriesEntry = { prev, next, ...seriesData };
 
     return seriesLinkedData;
   }

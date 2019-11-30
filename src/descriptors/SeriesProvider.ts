@@ -1,7 +1,7 @@
-import { EntryLinks } from '@models/Models';
+import { SeriesEntry } from '@models/Models';
 
 export interface SeriesProvider {
   seriesList: string[];
   seriesExists(seriesName: string): boolean;
-  getSeriesData(seriesName: string, reference: string | null): Promise<EntryLinks>;
+  getSeriesData(seriesName: string, reference: string | null): Promise<SeriesEntry>;
 }
