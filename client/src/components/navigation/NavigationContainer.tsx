@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Container, Row } from 'reactstrap';
-import { NavigationItem } from '../../models/Models';
+import { NavigationItem } from '@models/Models';
 import { NavigationButton } from './NavigationButton';
 import './NavigationContainer.scss';
 

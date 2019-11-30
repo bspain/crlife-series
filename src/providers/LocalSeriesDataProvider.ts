@@ -1,7 +1,7 @@
 import { readFile } from 'fs';
 import { join } from 'path';
 import { promisify } from 'util';
-import { SeriesMetadata, Series } from '../models/SeriesMedata';
+import { SeriesMetadata, Series } from '@models/Models';
 import Logger from '../logger';
 
 const readLocalFile: (pathname: string) => Promise<Buffer> = promisify(readFile);

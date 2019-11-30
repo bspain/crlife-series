@@ -1,4 +1,4 @@
-import { LinkedSeries } from '../models/SeriesMedata';
+import { LinkedSeries } from '@models/Models';
 
 export interface SeriesProvider {
   seriesList: string[];

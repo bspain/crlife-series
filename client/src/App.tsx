@@ -4,13 +4,13 @@ import { ContentContainer } from './components/content/ContentContainer';
 import { NavigationContainer } from './components/navigation/NavigationContainer';
 import { Chevron } from './components/chevron/Chevron';
 import './App.scss';
-import { Series } from './models/Models';
+import { LinkedSeries } from '@models/Models';
 
 interface IAppProps {
-  series: Series;
+  series: LinkedSeries;
 }
 interface IAppState {
-  series: Series;
+  series: LinkedSeries;
   selected: number;
   navExpanded: boolean;
 }

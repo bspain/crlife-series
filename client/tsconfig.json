@@ -6,7 +6,13 @@
         "module": "esnext",
         "moduleResolution": "node",
         "target": "es6",
-        "jsx": "react"
+        "jsx": "react",
+        "baseUrl": "./src",
+        "paths": {
+            "@models/*" : [
+                "../../packages/models/*"
+            ]
+        }
     },
     "include": [
         "./src/**/*", "src/@types/png"

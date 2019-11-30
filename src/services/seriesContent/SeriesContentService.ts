@@ -1,6 +1,6 @@
 import Logger from '../../logger';
 import { SeriesProvider } from '../../descriptors/SeriesProvider';
-import { SeriesMetadata, SeriesEntry, LinkedSeries } from '../../models/SeriesMedata';
+import { SeriesMetadata, SeriesEntry, LinkedSeries } from '@models/Models';
 import { SeriesDataProvider } from '../../providers/LocalSeriesDataProvider';
 
 export class SeriesContentService implements SeriesProvider {

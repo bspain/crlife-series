@@ -1,7 +1,7 @@
 /* global window, document */
 import * as React from 'react';
 import { Container, Row } from 'reactstrap';
-import { Series } from '../../models/Models';
+import { Series } from '@models/Models';
 import './ContentContainer.scss';
 import './nlt-api.css';
 
