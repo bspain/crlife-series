@@ -1,11 +1,11 @@
 import { ModuleRequestHandler } from '../../descriptors/ModuleRequestHandler';
 import Logger from '../../logger';
-import { SeriesProvider } from '../../descriptors/SeriesProvider';
 import { ClientContentService } from '../../services/clientContent/ClientContentService';
+import { SeriesContentService } from '../../services/seriesContent/SeriesContentService';
 
 export class SeriesModule implements ModuleRequestHandler {
   constructor(
-    private seriesProvider: SeriesProvider,
+    private seriesContentService: SeriesContentService,
     private clientContentService: ClientContentService,
     private logger: Logger
   ) {}
@@ -18,7 +18,7 @@ export class SeriesModule implements ModuleRequestHandler {
     const seriesName = request.params[0].replace('/', '');
 
     this.logger.debug('MODULE_SERIES', `handling series request for ${seriesName}`);
-    const seriesExists = await this.seriesProvider.seriesExists(seriesName);
+    const seriesExists = await this.seriesContentService.seriesExists(seriesName);
 
     if (!seriesExists) {
       this.logger.debug('MODULE_SERIES', `series ${seriesName} not found.`);
@@ -27,7 +27,7 @@ export class SeriesModule implements ModuleRequestHandler {
       return Promise.resolve();
     }
 
-    const data = await this.seriesProvider.getSeriesData(seriesName, request.query.ref);
+    const data = await this.seriesContentService.getSeriesData(seriesName, request.query.ref);
     const client = await this.clientContentService.getClient(JSON.stringify(data));
 
     response.status(200);

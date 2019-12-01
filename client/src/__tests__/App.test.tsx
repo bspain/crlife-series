@@ -2,7 +2,7 @@
 import 'jest';
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import { SeriesEntry } from '@models/Models';
+import { SeriesEntry } from '@crlife/Models';
 import App from '../App';
 import { NavigationContainer } from '../components/navigation/NavigationContainer';
 

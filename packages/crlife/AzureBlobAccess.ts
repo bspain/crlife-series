@@ -1,13 +1,14 @@
 import { StorageSharedKeyCredential, BlobServiceClient } from "@azure/storage-blob";
 
-export interface BlobAccessOptions {
+export interface AzureBlobAccessOptions {
     storageAccountName: string,
     storageAccountKey: string,
+    storageContainer: string
 }
-export class BlobAccess
+export class AzureBlobAccess
 {
     constructor(
-        private options: BlobAccessOptions
+        private options: AzureBlobAccessOptions
     ) {}
 
     async readBlob(blobPath: string) : Promise<string>
@@ -18,7 +19,7 @@ export class BlobAccess
             sharedKeyCredential
         );
 
-        const containerClient = blobServiceClient.getContainerClient('crseries');
+        const containerClient = blobServiceClient.getContainerClient(this.options.storageContainer);
         const blobClient = containerClient.getBlobClient(blobPath);
 
         const downloadBlockBlobResponse = await blobClient.download();

@@ -4,7 +4,7 @@ import { ContentContainer } from './components/content/ContentContainer';
 import { NavigationContainer } from './components/navigation/NavigationContainer';
 import { Chevron } from './components/chevron/Chevron';
 import './App.scss';
-import { SeriesEntry } from '@models/Models';
+import { SeriesEntry } from '@crlife/Models';
 
 interface IAppProps {
   entry: SeriesEntry;

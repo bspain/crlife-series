@@ -9,13 +9,7 @@
         "typeRoots": [
             "./node_modules/@types",
             "./src/@types"
-        ],
-        "baseUrl": "./src",
-        "paths": {
-            "@models/*" : [
-                "../packages/models/*"
-            ]
-        }
+        ]
     },
     "include": [
         "./src/**/*"

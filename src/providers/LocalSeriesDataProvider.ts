@@ -1,28 +1,18 @@
 import { readFile } from 'fs';
 import { join } from 'path';
 import { promisify } from 'util';
-import { SeriesMetadata, EntryData } from '@models/Models';
+import { EntryData } from '../../packages/crlife/Models';
 import Logger from '../logger';
+import { SeriesEntryProvider } from '../descriptors/SeriesProvider';
 
 const readLocalFile: (pathname: string) => Promise<Buffer> = promisify(readFile);
+const defaultSeriesRoot = join(__dirname, './../../../data/series');
 
-interface SeriesDataProvider {
-  getSeriesMetadata(): Promise<SeriesMetadata>;
-  getSeriesEntry(seriesPath: string, entryPath: string): Promise<EntryData>;
-}
-
-class LocalSeriesDataProvider implements SeriesDataProvider {
-  constructor(private logger: Logger) {}
-
-  getSeriesMetadata(): Promise<SeriesMetadata> {
-    return readLocalFile(join(__dirname, './../../data/series/meta.json')).then(data => {
-      this.logger.debug('PROVIDER_LOCAL_SERIES', `Series metadata loaded successfully`);
-      return JSON.parse(data.toString()) as SeriesMetadata;
-    });
-  }
+class LocalSeriesDataProvider implements SeriesEntryProvider {
+  constructor(private logger: Logger, private seriesRoot?: string) {}
 
   getSeriesEntry(seriesPath: string, entryPath: string): Promise<EntryData> {
-    const fullDataPath = join(__dirname, './../../data/series', seriesPath, entryPath);
+    const fullDataPath = join(this.seriesRoot || defaultSeriesRoot, seriesPath, entryPath);
 
     return readLocalFile(fullDataPath).then(data => {
       this.logger.debug(
@@ -34,4 +24,4 @@ class LocalSeriesDataProvider implements SeriesDataProvider {
   }
 }
 
-export { SeriesDataProvider, LocalSeriesDataProvider };
+export { LocalSeriesDataProvider };

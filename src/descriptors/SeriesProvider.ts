@@ -1,7 +1,5 @@
-import { SeriesEntry } from '@models/Models';
+import { EntryData } from '../../packages/crlife/Models';
 
-export interface SeriesProvider {
-  seriesList: string[];
-  seriesExists(seriesName: string): boolean;
-  getSeriesData(seriesName: string, reference: string | null): Promise<SeriesEntry>;
+export interface SeriesEntryProvider {
+  getSeriesEntry(seriesPath: string, entryPath: string): Promise<EntryData>;
 }

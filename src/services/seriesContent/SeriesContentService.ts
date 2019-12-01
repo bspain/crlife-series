@@ -1,19 +1,13 @@
 import Logger from '../../logger';
-import { SeriesProvider } from '../../descriptors/SeriesProvider';
-import { SeriesMetadata, Series, SeriesEntry } from '@models/Models';
-import { SeriesDataProvider } from '../../providers/LocalSeriesDataProvider';
+import { SeriesEntryProvider } from '../../descriptors/SeriesProvider';
+import { SeriesMetadata, Series, SeriesEntry } from '../../../packages/crlife/Models';
 
-export class SeriesContentService implements SeriesProvider {
-  private seriesMetadata: SeriesMetadata;
-
-  constructor(private dataProvider: SeriesDataProvider, private logger: Logger) {}
-
-  initializeSeriesMetadata(): Promise<void> {
-    this.logger.debug('SERVICE_SERIES', `Getting series metadata`);
-    return this.dataProvider.getSeriesMetadata().then(data => {
-      this.seriesMetadata = data;
-    });
-  }
+export class SeriesContentService {
+  constructor(
+    private seriesMetadata: SeriesMetadata,
+    private entryProvider: SeriesEntryProvider,
+    private logger: Logger
+  ) {}
 
   get seriesList(): string[] {
     this.logger.debug('SERVICE_SERIES', 'Enumerating series list');
@@ -33,7 +27,7 @@ export class SeriesContentService implements SeriesProvider {
     const seriesEntry = this.seriesMetadata.series.filter(entry => entry.name == seriesName)[0];
 
     const data = this.getDataPathOrDefault(seriesEntry, reference);
-    const seriesData = await this.dataProvider.getSeriesEntry(seriesEntry.path, data.path);
+    const seriesData = await this.entryProvider.getSeriesEntry(seriesEntry.path, data.path);
 
     // Populate next,prev
     const { prev, next } = this.getNextPrevForReference(seriesEntry, data.ref);

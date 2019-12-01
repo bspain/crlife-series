@@ -1,7 +1,7 @@
 /* global document */
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { SeriesEntry } from '@models/Models';
+import { SeriesEntry } from '@crlife/Models';
 import App from './App';
 
 import 'bootstrap/dist/css/bootstrap.min.css';

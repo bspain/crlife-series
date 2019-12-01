@@ -6,11 +6,13 @@
   "author": "Benjamin Spain <benjamin@thespains.net>",
   "license": "MIT",
   "scripts": {
+    "prebuild": "node ./util/server-pre-build.js",
     "build": "tsc",
     "lint": "eslint --fix --ext .ts src/",
-    "start": "node -r ts-node/register ./src/main.ts",
-    "start:debug": "node --inspect-brk -r ts-node/register ./src/main.ts",
-    "dev": "APP_ENV=development DEBUG=app* node -r ts-node/register ./src/main.ts",
+    "start": "node dist/src/main.js",
+    "dev": "APP_ENV=development DEBUG=app* node dist/src/main.js",
+    "dev:debug" : "APP_ENV=development DEBUG=app* node --inspect-brk dist/src/main.js",
+    "dev:azure": "APP_ENV=development-azure DEBUG=app* node dist/src/main.js",
     "dev:watch": "APP_ENV=development nodemon",
     "test": "jest",
     "packclient": "node ./util/packclient.js",
@@ -67,7 +69,6 @@
     "nodemon": "^1.19.4",
     "prettier": "^1.18.2",
     "ts-jest": "^24.2.0",
-    "ts-node": "^8.4.1",
     "typescript": "^3.7.2"
   }
 }

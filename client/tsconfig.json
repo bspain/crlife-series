@@ -9,8 +9,8 @@
         "jsx": "react",
         "baseUrl": "./src",
         "paths": {
-            "@models/*" : [
-                "../../packages/models/*"
+            "@crlife/*" : [
+                "../../packages/crlife/*"
             ]
         }
     },

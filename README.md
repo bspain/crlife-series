@@ -41,7 +41,6 @@ Once the **client** has been built, install and build the server application, an
 ```
 ./$ yarn install
 ./$ yarn verify
-./$ yarn packclient
 ```
 
 The server can then be started in development mode

@@ -51,8 +51,8 @@ function onListening(server: http.Server): void {
   console.log(`Listening on ${bind}`);
 }
 
-async function main(): Promise<void> {
-  const app = await appProvider.initializeExpressApp();
+function main(): void {
+  const app = appProvider.initializeExpressApp();
 
   // Setup App
   const httpServer = http.createServer(app);

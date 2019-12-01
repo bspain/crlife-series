@@ -16,7 +16,7 @@ const AppConfig = stringEnum([
   'package_json_loaded',
   'package_version',
   'AZURE_STORAGE_ACCOUNT_NAME',
-  'AZURE_STORAGE_ACCOUNT_ACCESS_KEY',
+  'AZURE_STORAGE_ACCOUNT_KEY',
   'AZURE_STORAGE_CONTAINER_NAME'
 ]);
 
@@ -31,8 +31,9 @@ const AppConfigWhitelist: string[] = [
 ];
 
 const AppConfigMaskedlist: string[] = [
-  AppConfig.AZURE_STORAGE_CONTAINER_NAME,
-  AppConfig.AZURE_STORAGE_ACCOUNT_ACCESS_KEY
+  AppConfig.AZURE_STORAGE_ACCOUNT_NAME,
+  AppConfig.AZURE_STORAGE_ACCOUNT_KEY,
+  AppConfig.AZURE_STORAGE_CONTAINER_NAME
 ];
 
 type AppConfigKey = keyof typeof AppConfig;
