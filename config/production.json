@@ -1,5 +1,5 @@
 {
     "extends" : "default",
     "meta" : "prod",
-    "azure_storage" : false
+    "azure_storage" : true
 }
