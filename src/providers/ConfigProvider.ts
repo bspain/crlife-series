@@ -4,8 +4,8 @@ import { Provider } from 'nconf';
 import appfig = require('appfig');
 import { stringEnum } from '../util/stringEnum';
 
-const appConfigFile = path.join(__dirname, './../../app.config.json'); // Secrets that should not be committed to source control
-const packageFile = path.join(__dirname, './../../package.json'); // Version information
+const appConfigFile = path.join(__dirname, './../../../app.config.json'); // Secrets that should not be committed to source control
+const packageFile = path.join(__dirname, './../../../package.json'); // Version information
 
 const AppConfig = stringEnum([
   'meta',
@@ -49,7 +49,7 @@ class ConfigProvider {
     const options = {
       env: [
         'AZURE_STORAGE_ACCOUNT_NAME',
-        'AZURE_STORAGE_ACCOUNT_ACCESS_KEY',
+        'AZURE_STORAGE_ACCOUNT_KEY',
         'AZURE_STORAGE_CONTAINER_NAME'
       ]
     };
