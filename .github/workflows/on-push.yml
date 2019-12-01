@@ -25,6 +25,5 @@ jobs:
         cd ..
         yarn install
         yarn verify
-        yarn packclient
       env:
         CI: true

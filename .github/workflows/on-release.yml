@@ -40,7 +40,6 @@ jobs:
         cd ..
         yarn install
         yarn verify
-        yarn packclient
     - name: Deploy to Azure WebApp
       uses: azure/webapps-deploy@v1
       with:
