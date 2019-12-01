@@ -10,7 +10,7 @@ interface PassageOptions {
 }
 
 async function action(options: PassageOptions, apiKey: string) {
-    const request = `http://api.nlt.to/api/passages?ref=${options.reference}&key=${apiKey}`;
+    const request = `http://api.nlt.to/api/passages?version=NLT&ref=${options.reference}&key=${apiKey}`;
 
     const response = await fetch(request, {});
     if (response.status !== 200)
