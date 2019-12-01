@@ -35,7 +35,12 @@ export class AppProvider {
 
     // App routes
     app.get('/health', healthModule.requestHandler.bind(healthModule));
-    app.use('/public', express.static('public'));
+
+    const staticOptions = {
+      fallthrough: (this.config.env == 'production')
+    };
+    app.use('/public', express.static('./dist/public', staticOptions));
+    
     app.use('*', seriesModule.requestHandler.bind(seriesModule));
 
     return app;

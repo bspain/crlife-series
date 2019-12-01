@@ -10,7 +10,7 @@
     "build": "tsc",
     "lint": "eslint --fix --ext .ts src/",
     "start": "node dist/src/main.js",
-    "dev": "APP_ENV=development DEBUG=app* node dist/src/main.js",
+    "dev": "yarn build && APP_ENV=development DEBUG=app* node dist/src/main.js",
     "dev:debug" : "APP_ENV=development DEBUG=app* node --inspect-brk dist/src/main.js",
     "dev:azure": "APP_ENV=development-azure DEBUG=app* node dist/src/main.js",
     "dev:watch": "APP_ENV=development nodemon",
