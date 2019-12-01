@@ -25,9 +25,9 @@ describe('Local series storage', () => {
   });
 
   it('Will return a linked series data', async () => {
-    const linkedSeries = await seriesStorage.getSeriesData('daily', '1123');
+    const linkedSeries = await seriesStorage.getSeriesData('daily', '0102');
     expect(linkedSeries.title).toEqual('Daily Devotional');
-    expect(linkedSeries.prev).toEqual('1125');
-    expect(linkedSeries.next).toEqual('1124');
+    expect(linkedSeries.prev).toEqual('0101');
+    expect(linkedSeries.next).toEqual('0103');
   });
 });

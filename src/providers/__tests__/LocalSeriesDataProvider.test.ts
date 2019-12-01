@@ -10,7 +10,7 @@ describe('Local series data provider', () => {
   });
 
   it('Will return series entry data from local storage', async () => {
-    const series = await provider.getSeriesEntry('/daily', '/1123.json');
+    const series = await provider.getSeriesEntry('/daily', '/0101.json');
     expect(series.title).toBe('Daily Devotional');
   });
 });
