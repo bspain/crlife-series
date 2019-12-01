@@ -35,24 +35,28 @@
             "id": "ot-passage",
             "type": "passage",
             "title": "Old Testament Reading",
+            "api_nlt_to_ref": "",
             "value": ""
         },
         {
             "id": "nt-passage",
             "type": "passage",
             "title": "New Testament Reading",
+            "api_nlt_to_ref": "",
             "value": ""
         },
         {
             "id": "ps-passage",
             "type": "passage",
             "title": "Psalms Reading",
+            "api_nlt_to_ref": "",
             "value": ""
         },
         {
             "id": "pr-passage",
             "type": "passage",
             "title": "Proverbs Reading",
+            "api_nlt_to_ref": "",
             "value": ""
         }
     ]

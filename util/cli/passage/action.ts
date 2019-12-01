@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 import * as cheerio from 'cheerio';
-import { WriteOptions, action as WriteAction } from '../write/action';
+import { writeJson, JsonWriteOptions } from '../lib/json-writer';
 
 interface PassageOptions {
     reference: string,
@@ -35,27 +35,34 @@ async function action(options: PassageOptions, apiKey: string) {
         return;
     }
 
-    // Encode bible passage content and inject into file
-    const encodedPayload = encodeURIComponent(biblePayload.toString())
-    const writeOptions : WriteOptions = {
+    const writeOptions : JsonWriteOptions = {
         file: options.file,
-        query: `$.content[?(@.id=='${options.passageId}')].value`,
-        value: encodedPayload
+        entries: []
     }
 
-    WriteAction(writeOptions);
+    // Encode bible passage content and inject into file
+    const encodedPayload = encodeURIComponent(biblePayload.toString());
+    writeOptions.entries.push({
+        query: `$.content[?(@.id=='${options.passageId}')].value`,
+        value: encodedPayload
+    });
 
+    // Write the API.NLT.TO reference as well.
+    writeOptions.entries.push({
+        query: `$.content[?(@.id=='${options.passageId}')].api_nlt_to_ref`,
+        value: options.reference
+    })
+    
     // Update the title if provided
     if (options.title !== undefined && options.title !== '')
     {
-        const writeTitleOptions: WriteOptions = {
-            file: options.file,
+        writeOptions.entries.push({
             query: `$.content[?(@.id=='${options.passageId}')].title`,
             value: options.title
-        }
-
-        WriteAction(writeTitleOptions);
+        });
     }
+
+    writeJson(writeOptions);
 }
 
 export {
