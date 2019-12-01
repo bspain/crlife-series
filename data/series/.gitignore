@@ -3,6 +3,6 @@
 
 # Except meta.json and some set of examples
 !meta.json
-!daily/112*
+!daily/010*
 !daily/template.json
 !devo/1103.json
