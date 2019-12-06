@@ -1,4 +1,5 @@
 {
-    "extends" : "development",
+    "port" : 3000,
+    "meta" : "local",
     "azure_storage" : true
 }

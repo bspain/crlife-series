@@ -37,10 +37,10 @@ export class AppProvider {
     app.get('/health', healthModule.requestHandler.bind(healthModule));
 
     const staticOptions = {
-      fallthrough: (this.config.env == 'production')
+      fallthrough: this.config.env == 'production'
     };
     app.use('/public', express.static('./dist/public', staticOptions));
-    
+
     app.use('*', seriesModule.requestHandler.bind(seriesModule));
 
     return app;
