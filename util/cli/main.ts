@@ -63,7 +63,7 @@ program.command('read-azure')
         // Ensure AZURE_STORAGE_ACCOUNT_NAME key is set
         if (process.env.AZURE_STORAGE_ACCOUNT_KEY == undefined || process.env.AZURE_STORAGE_ACCOUNT_KEY == '')
         {
-            console.error("Did not find nlt key at process.env.AZURE_STORAGE_ACCOUNT_ACCESS_KEY.  Did you 'export AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<key>'")
+            console.error("Did not find nlt key at process.env.AZURE_STORAGE_ACCOUNT_KEY.  Did you 'export AZURE_STORAGE_ACCOUNT_KEY=<key>'")
             program.help();
             process.exit();
         }
