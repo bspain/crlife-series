@@ -29,8 +29,8 @@ class ContentContainer extends React.Component<ContentContainerProps> {
     });
 
     // Templating for current year
-    const year = (new Date(Date.now())).getFullYear();
-    const subtitle = this.props.entry.subtitle.replace('%%year%%', year.toString())
+    const year = new Date(Date.now()).getFullYear();
+    const subtitle = this.props.entry.subtitle.replace('%%year%%', year.toString());
 
     return (
       <Container className="crl-con-container" fluid={true}>
