@@ -28,11 +28,15 @@ class ContentContainer extends React.Component<ContentContainerProps> {
       );
     });
 
+    // Templating for current year
+    const year = (new Date(Date.now())).getFullYear();
+    const subtitle = this.props.entry.subtitle.replace('%%year%%', year.toString())
+
     return (
       <Container className="crl-con-container" fluid={true}>
         <div className="crl-con-banner">
           <h1>{this.props.entry.title}</h1>
-          <h2>{this.props.entry.subtitle}</h2>
+          <h2>{subtitle}</h2>
         </div>
         {contentRows}
       </Container>
