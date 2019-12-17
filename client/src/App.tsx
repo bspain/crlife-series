@@ -26,6 +26,10 @@ class App extends React.Component<IAppProps, IAppState> {
     this.setState({ navExpanded: !this.state.navExpanded });
   };
 
+  onTextsizeClicked = (): void => {
+    console.log('onTextsizeClicked')
+  }
+
   onContentNavClicked = (selection: number | 'prev' | 'next'): void => {
     if (selection == 'prev' || selection == 'next') {
       const refValue = selection == 'prev' ? this.props.entry.prev : this.props.entry.next;
@@ -43,6 +47,7 @@ class App extends React.Component<IAppProps, IAppState> {
           expanded={this.state.navExpanded}
           items={this.state.entry.navigation}
           onClick={this.onContentNavClicked}
+          onTextsize={this.onTextsizeClicked}
         ></NavigationContainer>
         <Chevron
           direction={this.state.navExpanded ? 'down' : 'up'}

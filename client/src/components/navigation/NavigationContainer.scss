@@ -27,6 +27,13 @@
         position: relative;    
     }
 
+    .textsize-icon {
+        height: 28px;
+        svg {
+            height: 100%;
+        }
+    }
+
     &.collapsed 
     {
         max-height: 23px;

@@ -9,7 +9,7 @@ const handleClick = (): void => {};
 
 describe('NavigationContainer', () => {
   it('should render backward and forward nav buttons', () => {
-    const wrapper = mount(<NavigationContainer onClick={handleClick} expanded={true} items={[]} />);
+    const wrapper = mount(<NavigationContainer onClick={handleClick} onTextsize={handleClick} expanded={true} items={[]} />);
     const buttons = wrapper.find(NavigationButton);
     expect(buttons).toHaveLength(2);
 
@@ -25,7 +25,7 @@ describe('NavigationContainer', () => {
     ];
 
     const wrapper = mount(
-      <NavigationContainer onClick={handleClick} expanded={true} items={navItems} />
+      <NavigationContainer onClick={handleClick} onTextsize={handleClick} expanded={true} items={navItems} />
     );
     const buttons = wrapper.find(NavigationButton);
     expect(buttons).toHaveLength(5);
