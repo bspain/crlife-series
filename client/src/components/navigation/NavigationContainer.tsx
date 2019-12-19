@@ -31,7 +31,7 @@ class NavigationContainer extends React.Component<NavigationContainerProps> {
         className={`crl-nav-container ${this.props.expanded ? 'expanded' : 'collapsed'}`}
       >
         <Row className="crl-nav-options">
-          <Textsize onClick={this.props.onTextsize} />
+            <Textsize onClick={this.props.onTextsize} />
         </Row>
         {navigationRows}
         <Row className="crl-nav-pagenav">

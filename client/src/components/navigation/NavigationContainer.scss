@@ -12,6 +12,14 @@
         margin-bottom: 8px;
     }
    
+    .crl-nav-options {
+        display: flex;
+        flex-direction: row-reverse;
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
     .crl-nav-button {
         border: 2px solid orange;
         border-radius: 6px;
@@ -28,7 +36,7 @@
     }
 
     .textsize-icon {
-        height: 28px;
+        height: 1.5em;
         svg {
             height: 100%;
         }
