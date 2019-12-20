@@ -20,7 +20,12 @@ class App extends React.Component<IAppProps, IAppState> {
   constructor(props: IAppProps) {
     super(props);
 
-    this.state = { entry: props.entry, selected: 0, navExpanded: false, textsize: 0 };
+    var initialTextSize = Number.parseInt(localStorage.getItem('crl-initial-textsize'))
+    if (Number.isNaN(initialTextSize)) {
+      initialTextSize = 0
+    }
+
+    this.state = { entry: props.entry, selected: 0, navExpanded: false, textsize: initialTextSize };
   }
 
   onChevronClicked = (): void => {
@@ -33,6 +38,7 @@ class App extends React.Component<IAppProps, IAppState> {
       newTextSize = 0
     }
 
+    localStorage.setItem('crl-initial-textsize', newTextSize.toString())
     this.setState({ textsize: newTextSize });
   }
 
