@@ -1,6 +1,7 @@
 import { ModuleRequestHandler } from '../../descriptors/ModuleRequestHandler';
 import Logger from '../../logger';
 import { ConfigProvider, AppConfig } from '../../providers/ConfigProvider';
+import { GitSha } from '../../providers/GitShaProvider';
 
 export class HealthModule implements ModuleRequestHandler {
   constructor(private logger: Logger, private config: ConfigProvider) {}
@@ -53,14 +54,16 @@ export class HealthModule implements ModuleRequestHandler {
       }
     });
 
-    // Diagnotic - local time
+    // Diagnotics
     const localTime = new Date(Date.now()).toString();
+    const sha = GitSha();
 
     response.setHeader('Content-Type', 'application/json');
     response.send(
       JSON.stringify({
         status: 'OK',
         time: localTime,
+        sha,
         version: this.config.get(AppConfig.package_version),
         config: this.config.logConfig(),
         environment: visibleSettings
