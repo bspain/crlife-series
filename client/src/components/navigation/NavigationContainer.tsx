@@ -29,7 +29,6 @@ class NavigationContainer extends React.Component<NavigationContainerProps> {
         className={`crl-nav-container ${this.props.expanded ? 'expanded' : 'collapsed'}`}
       >
         {navigationRows}
-        <div className="crl-nav-divider" />
         <Row className="crl-nav-pagenav">
           <NavigationButton selection="prev" onClick={this.props.onClick}>
             {'<'}
