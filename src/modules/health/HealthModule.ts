@@ -53,10 +53,14 @@ export class HealthModule implements ModuleRequestHandler {
       }
     });
 
+    // Diagnotic - local time
+    const localTime = new Date(Date.now()).toString();
+
     response.setHeader('Content-Type', 'application/json');
     response.send(
       JSON.stringify({
         status: 'OK',
+        time: localTime,
         version: this.config.get(AppConfig.package_version),
         config: this.config.logConfig(),
         environment: visibleSettings
