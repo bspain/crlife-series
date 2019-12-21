@@ -3,6 +3,7 @@
         {
             "name": "daily",
             "path": "/daily",
+            "default" : "date",
             "data": [
                 {
                     "ref": "0101",
@@ -1429,6 +1430,7 @@
         {
             "name": "devo",
             "path": "/devo",
+            "default" : "first",
             "data": [
                 {
                     "ref": "1103",
