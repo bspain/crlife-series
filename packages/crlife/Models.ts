@@ -32,6 +32,7 @@ export interface NavigationItem {
   export interface Series {
     name: string;
     path: string;
+    default: 'first' | 'date'
     data: SeriesEntryReference[];
   }
   
