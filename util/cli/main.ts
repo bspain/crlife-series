@@ -39,7 +39,7 @@ program.command('content')
     .description('Read a devotion input HTML fragment and encode it into a series content item')
     .requiredOption('-s, --source-file <source file>', 'Path to fragement input file (e.g. "./devo-temp.html")')
     .requiredOption('-f, --file <file>', 'Path to series content file (e.g. "../../data/series/daily/1123.json")')
-    .option('-c, --content-id', 'id of the content devotion item (Default. "devotion")')
+    .option('-c, --content-id <content-id>', 'id of the content devotion item (Default. "devotion")')
     .action(function devotionAction(options: ContentOptions) {
         if (options.contentId == undefined || options.contentId == '')
         {
