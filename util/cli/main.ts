@@ -1,6 +1,6 @@
 import { Command } from 'commander';
 import { PassageOptions, action as PassageAction } from './passage/action';
-import { DevotionOptions, action as DevotionAction } from './devotion/action';
+import { ContentOptions, action as ContentAction } from './content/action';
 import { ActionOptions as ReadAzureOptions, action as ReadAzureAction } from './read-azure/action';
 
 const program = new Command();
@@ -35,17 +35,17 @@ program
         PassageAction(options, process.env.NLT_KEY);
     });
 
-program.command('devotion')
+program.command('content')
     .description('Read a devotion input HTML fragment and encode it into a series content item')
     .requiredOption('-s, --source-file <source file>', 'Path to fragement input file (e.g. "./devo-temp.html")')
     .requiredOption('-f, --file <file>', 'Path to series content file (e.g. "../../data/series/daily/1123.json")')
-    .option('-d, --devotion-id', 'id of the content devotion item (Default. "devotion")')
-    .action(function devotionAction(options: DevotionOptions) {
-        if (options.devotionId == undefined || options.devotionId == '')
+    .option('-c, --content-id', 'id of the content devotion item (Default. "devotion")')
+    .action(function devotionAction(options: ContentOptions) {
+        if (options.contentId == undefined || options.contentId == '')
         {
-            options.devotionId = 'devotion'
+            options.contentId = 'devotion'
         }
-        DevotionAction(options);
+        ContentAction(options);
     })
 
 program.command('read-azure')
