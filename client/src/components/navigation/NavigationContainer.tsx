@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Container, Row } from 'reactstrap';
 import { NavigationItem } from '@crlife/Models';
 import { NavigationButton } from './NavigationButton';
-import { Textsize } from '../textsize/Textsize'
+import { Textsize } from '../textsize/Textsize';
 import './NavigationContainer.scss';
 
 interface NavigationContainerProps {
@@ -31,7 +31,7 @@ class NavigationContainer extends React.Component<NavigationContainerProps> {
         className={`crl-nav-container ${this.props.expanded ? 'expanded' : 'collapsed'}`}
       >
         <Row className="crl-nav-options">
-            <Textsize onClick={this.props.onTextsize} />
+          <Textsize onClick={this.props.onTextsize} />
         </Row>
         {navigationRows}
         <div className="crl-nav-divider" />

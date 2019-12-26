@@ -1,4 +1,4 @@
-/* global window */
+/* global window, localStorage */
 import * as React from 'react';
 import { ContentContainer } from './components/content/ContentContainer';
 import { NavigationContainer } from './components/navigation/NavigationContainer';
@@ -20,9 +20,9 @@ class App extends React.Component<IAppProps, IAppState> {
   constructor(props: IAppProps) {
     super(props);
 
-    var initialTextSize = Number.parseInt(localStorage.getItem('crl-initial-textsize'))
+    let initialTextSize = Number.parseInt(localStorage.getItem('crl-initial-textsize'));
     if (Number.isNaN(initialTextSize)) {
-      initialTextSize = 0
+      initialTextSize = 0;
     }
 
     this.state = { entry: props.entry, selected: 0, navExpanded: false, textsize: initialTextSize };
@@ -33,14 +33,14 @@ class App extends React.Component<IAppProps, IAppState> {
   };
 
   onTextsizeClicked = (): void => {
-    var newTextSize = this.state.textsize + 1;
-    if (newTextSize >=3 ) {
-      newTextSize = 0
+    let newTextSize = this.state.textsize + 1;
+    if (newTextSize >= 3) {
+      newTextSize = 0;
     }
 
-    localStorage.setItem('crl-initial-textsize', newTextSize.toString())
+    localStorage.setItem('crl-initial-textsize', newTextSize.toString());
     this.setState({ textsize: newTextSize });
-  }
+  };
 
   onContentNavClicked = (selection: number | 'prev' | 'next'): void => {
     if (selection == 'prev' || selection == 'next') {
@@ -52,8 +52,7 @@ class App extends React.Component<IAppProps, IAppState> {
   };
 
   render(): JSX.Element {
-
-    var textsizeClass = `crl-textsize${this.state.textsize}`
+    const textsizeClass = `crl-textsize${this.state.textsize}`;
 
     return (
       <div className={`crl-app ${textsizeClass}`}>

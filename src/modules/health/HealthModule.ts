@@ -56,7 +56,7 @@ export class HealthModule implements ModuleRequestHandler {
 
     // Diagnotics
     const localTime = new Date(Date.now()).toString();
-    const sha = (new GitSha(this.config)).fetchSha();
+    const sha = new GitSha(this.config).fetchSha();
 
     response.setHeader('Content-Type', 'application/json');
     response.send(
