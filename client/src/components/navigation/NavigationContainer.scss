@@ -6,11 +6,25 @@
     background-color: black;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
+    font-size: 1rem;
+
+    .crl-nav-pagenav {
+        margin-top: 12px;
+        margin-bottom: 8px;
+    }
 
     .crl-nav-divider {
         height: 8px;
     }
    
+    .crl-nav-options {
+        display: flex;
+        flex-direction: row-reverse;
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
     .crl-nav-button {
         border: 2px solid orange;
         border-radius: 6px;
@@ -29,6 +43,13 @@
         margin-bottom: 16px;  
     }
 
+    .textsize-icon {
+        height: 28px;
+        svg {
+            height: 100%;
+        }
+    }
+
     &.collapsed 
     {
         max-height: 23px;
@@ -40,7 +61,7 @@
         // max-height allows the container height to by 'dynamic' under this range
         // this is a trick that allows us to transition (as transtions for height:auto don't work)
         // this should be the max the container could ever be.
-        max-height: 368px;
+        max-height: 420px;
         transition: max-height 500ms ease 0ms; 
     }
 }

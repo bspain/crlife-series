@@ -4,7 +4,7 @@ function numberToPathToken(n: number): string {
   } else return n.toString();
 }
 
-function dateToSeriesPath(d: Date) {
+function dateToSeriesPath(d: Date): string {
   const month = d.getMonth() + 1;
   const date = d.getDate();
 
