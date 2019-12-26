@@ -61,7 +61,7 @@
         // max-height allows the container height to by 'dynamic' under this range
         // this is a trick that allows us to transition (as transtions for height:auto don't work)
         // this should be the max the container could ever be.
-        max-height: 368px;
+        max-height: 420px;
         transition: max-height 500ms ease 0ms; 
     }
 }
