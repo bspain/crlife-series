@@ -39,6 +39,7 @@ class ContentContainer extends React.Component<ContentContainerProps> {
           <h2>{subtitle}</h2>
         </div>
         {contentRows}
+        <Row className="clr-con-footer-buffer" />
       </Container>
     );
   }

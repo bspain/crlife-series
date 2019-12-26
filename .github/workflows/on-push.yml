@@ -1,6 +1,8 @@
-name: On Push Actions
+name: On Push Non Master
 
-on: [push]
+on:
+  push:
+    branches-ignore: master
 
 jobs:
   build:

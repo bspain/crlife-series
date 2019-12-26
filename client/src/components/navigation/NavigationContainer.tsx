@@ -34,6 +34,7 @@ class NavigationContainer extends React.Component<NavigationContainerProps> {
             <Textsize onClick={this.props.onTextsize} />
         </Row>
         {navigationRows}
+        <div className="crl-nav-divider" />
         <Row className="crl-nav-pagenav">
           <NavigationButton selection="prev" onClick={this.props.onClick}>
             {'<'}

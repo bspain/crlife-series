@@ -1,13 +1,13 @@
 import { readFileSync, existsSync } from 'fs';
 import { writeJson, JsonWriteOptions } from '../lib/json-writer';
 
-interface DevotionOptions {
+interface ContentOptions {
     sourceFile: string,
     file: string,
-    devotionId: string
+    contentId: string
 }
 
-async function action(options: DevotionOptions) {
+async function action(options: ContentOptions) {
     if (!existsSync(options.sourceFile))
     {
         throw new Error(`Source file not found: ${options.sourceFile}`);
@@ -23,7 +23,7 @@ async function action(options: DevotionOptions) {
     const writeOptions : JsonWriteOptions = {
         file: options.file,
         entries: [{
-            query: `$.content[?(@.id=='${options.devotionId}')].value`,
+            query: `$.content[?(@.id=='${options.contentId}')].value`,
             value: sourceContent    
         }]
     }
@@ -32,6 +32,6 @@ async function action(options: DevotionOptions) {
 }
 
 export {
-    DevotionOptions,
+    ContentOptions,
     action
 }
