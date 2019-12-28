@@ -6,6 +6,8 @@ import { Chevron } from './components/chevron/Chevron';
 import './App.scss';
 import { SeriesEntry } from '@crlife/Models';
 
+const LARGEST_TEXT_SIZE = 4;
+
 interface IAppProps {
   entry: SeriesEntry;
 }
@@ -34,7 +36,7 @@ class App extends React.Component<IAppProps, IAppState> {
 
   onTextsizeClicked = (): void => {
     let newTextSize = this.state.textsize + 1;
-    if (newTextSize >= 3) {
+    if (newTextSize > LARGEST_TEXT_SIZE) {
       newTextSize = 0;
     }
 
