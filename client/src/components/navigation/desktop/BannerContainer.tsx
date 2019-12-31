@@ -25,11 +25,10 @@ class BannerContainer extends React.Component<BannerContainerProps> {
 
             if (content.type == 'passage')
             {
-                value = content.api_nlt_to_ref
+                value = content.api_nlt_to_ref  // TODO: Pretty format this
             }
 
             return (
-                //<Col key={`crl-ban-button-${nav.ref}`} className="crl-ban-button">{`${value}`}</Col>
                 <BannerButton
                     key={`crl-ban-button-${index}`} 
                     selection={index}
