@@ -32,7 +32,7 @@ class BannerNavigationContainer extends React.Component<BannerNavigationContaine
         })
 
         return (
-            <Container>
+            <Container className="crl-ban-container">
                 <Row>
                     {navButtons}
                 </Row>
