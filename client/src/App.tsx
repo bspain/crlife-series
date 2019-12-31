@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { ContentContainer } from './components/content/ContentContainer';
 import { NavigationContainer as MobileNavigationContainer } from './components/navigation/mobile/NavigationContainer';
-import { BannerNavigationContainer as DesktopNavigationContainer } from './components/navigation/desktop/BannerNavigationContainer';
+import { BannerContainer as DesktopNavigationContainer } from './components/navigation/desktop/BannerContainer';
 import { Chevron } from './components/chevron/Chevron';
 import './App.scss';
 import { SeriesEntry } from '@crlife/Models';

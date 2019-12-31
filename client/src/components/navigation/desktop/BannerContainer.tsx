@@ -1,14 +1,15 @@
 import * as React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { EntryData, ContentItem } from '@crlife/Models';
+import "./BannerContainer.scss"
 
-interface BannerNavigationContainerProps {
+interface BannerContainerProps {
     entry: EntryData;
     onClick(selection: number | 'prev' | 'next'): void;
     onTextsize(): void;
 }
 
-class BannerNavigationContainer extends React.Component<BannerNavigationContainerProps> {
+class BannerContainer extends React.Component<BannerContainerProps> {
     render(): JSX.Element {
 
         const navButtons = this.props.entry.navigation.map((nav, index) => {
@@ -27,7 +28,7 @@ class BannerNavigationContainer extends React.Component<BannerNavigationContaine
             }
 
             return (
-                <Col key={`nav-button-${nav.ref}`}>{`${value}`}</Col>
+                <Col key={`crl-ban-button-${nav.ref}`} className="crl-ban-button">{`${value}`}</Col>
             )
         })
 
@@ -41,4 +42,4 @@ class BannerNavigationContainer extends React.Component<BannerNavigationContaine
     }
 }
 
-export { BannerNavigationContainer };
+export { BannerContainer };
