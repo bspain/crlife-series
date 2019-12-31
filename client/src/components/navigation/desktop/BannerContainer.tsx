@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { EntryData, ContentItem } from '@crlife/Models';
+import { BannerButton } from './BannerButton';
 import "./BannerContainer.scss"
 
 interface BannerContainerProps {
@@ -28,7 +29,10 @@ class BannerContainer extends React.Component<BannerContainerProps> {
             }
 
             return (
-                <Col key={`crl-ban-button-${nav.ref}`} className="crl-ban-button">{`${value}`}</Col>
+                //<Col key={`crl-ban-button-${nav.ref}`} className="crl-ban-button">{`${value}`}</Col>
+                <BannerButton 
+                    selection={index}
+                    onClick={this.props.onClick}>{`${value}`}</BannerButton>
             )
         })
 
