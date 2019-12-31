@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Container, Row } from 'reactstrap';
 import { NavigationItem } from '@crlife/Models';
 import { NavigationButton } from './NavigationButton';
-import { Textsize } from '../textsize/Textsize';
+import { Textsize } from '../../textsize/Textsize';
 import './NavigationContainer.scss';
 
 interface NavigationContainerProps {

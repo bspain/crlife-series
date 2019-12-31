@@ -35,7 +35,6 @@ class ContentContainer extends React.Component<ContentContainerProps> {
     return (
       <Container className="crl-con-container" fluid={true}>
         <div className="crl-con-banner">
-          <h1>{this.props.entry.title}</h1>
           <h2>{subtitle}</h2>
         </div>
         {contentRows}

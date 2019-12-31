@@ -4,7 +4,7 @@ import * as React from 'react';
 import { shallow } from 'enzyme';
 import { SeriesEntry } from '@crlife/Models';
 import App from '../App';
-import { NavigationContainer } from '../components/navigation/NavigationContainer';
+import { NavigationContainer } from '../components/navigation/mobile/NavigationContainer';
 
 describe('App component', () => {
   it('should render a NaviagtionContainer', () => {

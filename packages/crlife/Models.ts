@@ -7,6 +7,7 @@ export interface NavigationItem {
     id: string;
     type: 'devotion' | 'passage';
     title: string;
+    api_nlt_to_ref: string | null;
     value: string;
   }
   
