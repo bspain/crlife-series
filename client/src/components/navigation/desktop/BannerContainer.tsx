@@ -30,7 +30,8 @@ class BannerContainer extends React.Component<BannerContainerProps> {
 
             return (
                 //<Col key={`crl-ban-button-${nav.ref}`} className="crl-ban-button">{`${value}`}</Col>
-                <BannerButton 
+                <BannerButton
+                    key={`crl-ban-button-${index}`} 
                     selection={index}
                     onClick={this.props.onClick}>{`${value}`}</BannerButton>
             )

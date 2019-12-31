@@ -12,7 +12,7 @@ const BannerButton: React.SFC<BannerButtonProps> = props => {
     };
   
     return (
-      <Col key={`crl-ban-button-${props.selection}`} className="crl-ban-button" onClick={handleClick}>{props.children}</Col>
+      <Col className="crl-ban-button" onClick={handleClick}>{props.children}</Col>
     );
   };
   
