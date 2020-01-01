@@ -36,7 +36,11 @@ class BannerContainer extends React.Component<BannerContainerProps> {
 
     return (
       <Container className="crl-ban-container">
-        <Row>{navButtons}</Row>
+        <Row>
+            <BannerButton selection="prev" onClick={this.props.onClick}>{'<'}</BannerButton>
+            {navButtons}
+            <BannerButton selection="next" onClick={this.props.onClick}>{'>'}</BannerButton>
+        </Row>
       </Container>
     );
   }
