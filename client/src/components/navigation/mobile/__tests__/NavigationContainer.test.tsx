@@ -26,9 +26,9 @@ describe('NavigationContainer', () => {
         entry={entry}
       />
     );
+
     const buttons = wrapper.find(NavigationButton);
     expect(buttons).toHaveLength(2);
-
     expect(buttons.at(0).text()).toEqual('<');
     expect(buttons.at(1).text()).toEqual('>');
   });
@@ -40,6 +40,7 @@ describe('NavigationContainer', () => {
         { ref: 'ref2', value: 'val2' },
         { ref: 'ref3', value: 'val3' }
       ],
+
       content: [
         {
           id: 'ref1',
@@ -75,7 +76,9 @@ describe('NavigationContainer', () => {
         entry={entry}
       />
     );
+
     const buttons = wrapper.find(NavigationButton);
+
     expect(buttons).toHaveLength(5);
 
     expect(buttons.at(0).text()).toEqual('Devotional');
