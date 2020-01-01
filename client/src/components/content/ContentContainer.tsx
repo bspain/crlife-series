@@ -13,16 +13,13 @@ interface ContentContainerProps {
 class ContentContainer extends React.Component<ContentContainerProps> {
   render(): JSX.Element {
     const contentRows = this.props.entry.content.map(content => {
-
       return (
         <Row
           key={`content-${content.id}`}
           id={content.id}
           className={`clr-con-type-${content.type}`}
         >
-          {
-            (content.type == 'devotion') ? <div className={`clr-con-title`}>{content.title}</div> : ''
-          }
+          {content.type == 'devotion' ? <div className={`clr-con-title`}>{content.title}</div> : ''}
           <div
             className={`clr-con-body`}
             dangerouslySetInnerHTML={{ __html: decodeURIComponent(content.value) }}
