@@ -66,6 +66,12 @@
   }
 
   .crl-con-container {
+
+    &.container-fluid {
+      padding-right: 45px;
+      padding-left: 45px;  
+    }
+
     .crl-con-banner {
       padding-top: 72px;
     }
