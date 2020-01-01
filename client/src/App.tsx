@@ -1,7 +1,8 @@
 /* global window, localStorage */
 import * as React from 'react';
 import { ContentContainer } from './components/content/ContentContainer';
-import { NavigationContainer } from './components/navigation/NavigationContainer';
+import { NavigationContainer as MobileNavigationContainer } from './components/navigation/mobile/NavigationContainer';
+import { BannerContainer as DesktopNavigationContainer } from './components/navigation/desktop/BannerContainer';
 import { Chevron } from './components/chevron/Chevron';
 import './App.scss';
 import { SeriesEntry } from '@crlife/Models';
@@ -58,13 +59,18 @@ class App extends React.Component<IAppProps, IAppState> {
 
     return (
       <div className={`crl-app ${textsizeClass}`}>
+        <DesktopNavigationContainer
+          entry={this.state.entry}
+          onClick={this.onContentNavClicked}
+          onTextsize={this.onTextsizeClicked}
+        />
         <ContentContainer entry={this.state.entry} selected={this.state.selected} />
-        <NavigationContainer
+        <MobileNavigationContainer
           expanded={this.state.navExpanded}
           items={this.state.entry.navigation}
           onClick={this.onContentNavClicked}
           onTextsize={this.onTextsizeClicked}
-        ></NavigationContainer>
+        ></MobileNavigationContainer>
         <Chevron
           direction={this.state.navExpanded ? 'down' : 'up'}
           onClick={this.onChevronClicked}

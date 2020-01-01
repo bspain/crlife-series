@@ -19,7 +19,7 @@ class ContentContainer extends React.Component<ContentContainerProps> {
           id={content.id}
           className={`clr-con-type-${content.type}`}
         >
-          <div className={`clr-con-title`}>{content.title}</div>
+          {content.type == 'devotion' ? <div className={`clr-con-title`}>{content.title}</div> : ''}
           <div
             className={`clr-con-body`}
             dangerouslySetInnerHTML={{ __html: decodeURIComponent(content.value) }}
@@ -35,7 +35,6 @@ class ContentContainer extends React.Component<ContentContainerProps> {
     return (
       <Container className="crl-con-container" fluid={true}>
         <div className="crl-con-banner">
-          <h1>{this.props.entry.title}</h1>
           <h2>{subtitle}</h2>
         </div>
         {contentRows}

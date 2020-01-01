@@ -46,3 +46,37 @@
     font-size: 1.8rem;
   }
 }
+
+.crl-ban-container {
+  visibility: hidden;
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .crl-nav-container {
+    visibility: hidden;
+  }
+
+  .chevron {
+    visibility: hidden;
+  }
+
+  .crl-ban-container {
+    visibility: visible;
+  }
+
+  .crl-con-container {
+
+    &.container-fluid {
+      padding-right: 45px;
+      padding-left: 45px;  
+    }
+
+    .crl-con-banner {
+      padding-top: 72px;
+    }
+    .clr-con-type-passage {
+      padding-top: 72px;
+    }
+  }
+}
