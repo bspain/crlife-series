@@ -67,7 +67,7 @@ class App extends React.Component<IAppProps, IAppState> {
         <ContentContainer entry={this.state.entry} selected={this.state.selected} />
         <MobileNavigationContainer
           expanded={this.state.navExpanded}
-          items={this.state.entry.navigation}
+          entry={this.state.entry}
           onClick={this.onContentNavClicked}
           onTextsize={this.onTextsizeClicked}
         ></MobileNavigationContainer>
