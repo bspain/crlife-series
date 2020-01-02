@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "verify": "yarn lint && yarn test && yarn build",
-    "build": "webpack --config webpack.config.js",
-    "dev": "yarn build && webpack-dev-server --env.dev --colors --hot --inline --port 8080",
+    "build": "webpack --config webpack.prod.js",
+    "dev": "webpack-dev-server --env.dev --config webpack.dev.js --colors --hot --inline --port 8080",
     "lint": "eslint --fix --ext .ts --ext .tsx src/",
     "test": "jest",
     "test:debug": "node --inspect-brk ./node_modules/.bin/jest --runInBand"
@@ -79,6 +79,7 @@
     "typescript": "^3.7.2",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0"
+    "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2"
   }
 }
