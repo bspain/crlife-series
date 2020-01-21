@@ -12,3 +12,6 @@ app.config.json
 
 # diagnostic files
 **/yarn-error.log
+
+# temp files for scripting
+temp-*.html
