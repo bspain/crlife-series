@@ -1,17 +1,21 @@
 import * as React from 'react';
 import { Container, Row } from 'reactstrap';
-import { EntryData, ContentItem } from '@crlife/Models';
+import { ContentItem, SeriesEntry } from '@crlife/Models';
 import { BannerButton } from './BannerButton';
 import './BannerContainer.scss';
+import { DisplayName } from '../../../helpers/NavigationDisplayNameHelper';
 
 interface BannerContainerProps {
-  entry: EntryData;
+  entry: SeriesEntry;
   onClick(selection: number | 'prev' | 'next'): void;
   onTextsize(): void;
 }
 
 class BannerContainer extends React.Component<BannerContainerProps> {
   render(): JSX.Element {
+    const prevDisplayName = DisplayName(this.props.entry.prev);
+    const nextDisplayName = DisplayName(this.props.entry.next);
+
     const navButtons = this.props.entry.navigation.map((nav, index) => {
       let value = 'Devotional';
 
@@ -38,11 +42,11 @@ class BannerContainer extends React.Component<BannerContainerProps> {
       <Container className="crl-ban-container">
         <Row>
           <BannerButton selection="prev" onClick={this.props.onClick}>
-            {'<'}
+            {'< ' + prevDisplayName}
           </BannerButton>
           {navButtons}
           <BannerButton selection="next" onClick={this.props.onClick}>
-            {'>'}
+            {nextDisplayName + ' >'}
           </BannerButton>
         </Row>
       </Container>
