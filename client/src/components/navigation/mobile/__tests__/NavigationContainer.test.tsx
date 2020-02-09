@@ -5,17 +5,19 @@ import * as React from 'react';
 import { mount } from 'enzyme';
 import { NavigationContainer } from '../NavigationContainer';
 import { NavigationButton } from '../NavigationButton';
-import { EntryData } from '@crlife/Models';
+import { SeriesEntry } from '@crlife/Models';
 
 const handleClick = (): void => {};
 
 describe('NavigationContainer', () => {
   it('should render backward and forward nav buttons', () => {
-    const entry: EntryData = {
+    const entry: SeriesEntry = {
       navigation: [],
       content: [],
       title: '',
-      subtitle: ''
+      subtitle: '',
+      next: '0101',
+      prev: '1231'
     };
 
     const wrapper = mount(
@@ -29,12 +31,12 @@ describe('NavigationContainer', () => {
 
     const buttons = wrapper.find(NavigationButton);
     expect(buttons).toHaveLength(2);
-    expect(buttons.at(0).text()).toEqual('<');
-    expect(buttons.at(1).text()).toEqual('>');
+    expect(buttons.at(0).text()).toEqual('< Dec 31');
+    expect(buttons.at(1).text()).toEqual('Jan 1 >');
   });
 
   it('should render each navigation based on content', () => {
-    const entry: EntryData = {
+    const entry: SeriesEntry = {
       navigation: [
         { ref: 'ref1', value: 'val1' },
         { ref: 'ref2', value: 'val2' },
@@ -65,7 +67,9 @@ describe('NavigationContainer', () => {
         }
       ],
       title: '',
-      subtitle: ''
+      subtitle: '',
+      next: '1231',
+      prev: '1229'
     };
 
     const wrapper = mount(
