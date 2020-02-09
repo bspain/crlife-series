@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { Container, Row } from 'reactstrap';
-import { EntryData, ContentItem } from '@crlife/Models';
+import { ContentItem, SeriesEntry } from '@crlife/Models';
 import { NavigationButton } from './NavigationButton';
 import { Textsize } from '../../textsize/Textsize';
 import './NavigationContainer.scss';
+import { DisplayName } from '../../../helpers/NavigationDisplayNameHelper';
 
 interface NavigationContainerProps {
-  entry: EntryData;
+  entry: SeriesEntry;
   expanded: boolean;
   onClick(selection: number | 'prev' | 'next'): void;
   onTextsize(): void;
@@ -14,6 +15,9 @@ interface NavigationContainerProps {
 
 class NavigationContainer extends React.Component<NavigationContainerProps> {
   render(): JSX.Element {
+    const prevDisplayName = DisplayName(this.props.entry.prev);
+    const nextDisplayName = DisplayName(this.props.entry.next);
+
     const navigationRows = this.props.entry.navigation.map((nav, index) => {
       let value = 'Devotional';
 
@@ -49,10 +53,10 @@ class NavigationContainer extends React.Component<NavigationContainerProps> {
         <div className="crl-nav-divider" />
         <Row className="crl-nav-pagenav">
           <NavigationButton selection="prev" onClick={this.props.onClick}>
-            {'<'}
+            {'< ' + prevDisplayName}
           </NavigationButton>
           <NavigationButton selection="next" onClick={this.props.onClick}>
-            {'>'}
+            {nextDisplayName + ' >'}
           </NavigationButton>
         </Row>
       </Container>
