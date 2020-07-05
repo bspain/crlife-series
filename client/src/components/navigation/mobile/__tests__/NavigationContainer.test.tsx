@@ -1,5 +1,6 @@
 /* global describe, it, expect */
 /* eslint @typescript-eslint/camelcase: 0 */
+/* eslint @typescript-eslint/no-empty-function: 0 */
 import 'jest';
 import * as React from 'react';
 import { mount } from 'enzyme';

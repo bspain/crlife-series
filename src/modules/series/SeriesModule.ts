@@ -2,6 +2,7 @@ import { ModuleRequestHandler } from '../../descriptors/ModuleRequestHandler';
 import Logger from '../../logger';
 import { ClientContentService } from '../../services/clientContent/ClientContentService';
 import { SeriesContentService } from '../../services/seriesContent/SeriesContentService';
+import { Request, Response } from 'express-serve-static-core';
 
 export class SeriesModule implements ModuleRequestHandler {
   constructor(
@@ -10,10 +11,7 @@ export class SeriesModule implements ModuleRequestHandler {
     private logger: Logger
   ) {}
 
-  async requestHandler(
-    request: import('express-serve-static-core').Request,
-    response: import('express-serve-static-core').Response
-  ): Promise<void> {
+  async requestHandler(request: Request, response: Response): Promise<void> {
     // Is there a series at this param?
     const seriesName = request.params[0].replace('/', '');
 
@@ -27,7 +25,8 @@ export class SeriesModule implements ModuleRequestHandler {
       return Promise.resolve();
     }
 
-    const data = await this.seriesContentService.getSeriesData(seriesName, request.query.ref);
+    const ref = request.query['ref'] as string;
+    const data = await this.seriesContentService.getSeriesData(seriesName, ref);
     const client = await this.clientContentService.getClient(JSON.stringify(data));
 
     response.status(200);
